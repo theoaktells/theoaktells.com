@@ -1,0 +1,16 @@
+{
+  "name": "theoaktells.com",
+  "version": "1.0.0",
+  "description": "website for sculptures",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type": "module",
+  "author": "jlvn",
+  "license": "ISC",
+  "dependencies": {
+    "handlebars": "^4.7.8",
+    "sharp": "^0.34.2"
+  }
+}
