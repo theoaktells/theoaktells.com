@@ -225,7 +225,10 @@ const pageFactoryTypeMap = {
     home: createHomePage
 }
 
+await fs.mkdir('build')
+
 await cleanFolder('build')
+
 await copyFiles('public', 'build')
 
 const pageFolderPaths = await findPageDirectories('data/pages')
