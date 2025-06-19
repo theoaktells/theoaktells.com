@@ -1,3 +1,11 @@
+/**
+ * @typedef {{title: string, url: string, impressivenessScore: number}} MenuItemData
+ */
+
+/**
+ * @typedef {{name: string, url: string, isActive: boolean}} MenuItem
+ */
+
 import Handlebars from 'handlebars'
 import fs from 'fs/promises'
 import path from 'path'
@@ -31,13 +39,13 @@ async function copyFiles(srcFolder, destFolder) {
 }
 
 async function cleanFolder(folderPath) {
-    const entries = await fs.readdir(folderPath, { withFileTypes: true })
+    const entries = await fs.readdir(folderPath, {withFileTypes: true})
 
     for (const entry of entries) {
         const fullPath = path.join(folderPath, entry.name)
 
         if (entry.isDirectory()) {
-            await fs.rm(fullPath, { recursive: true, force: true })
+            await fs.rm(fullPath, {recursive: true, force: true})
         } else {
             await fs.unlink(fullPath)
         }
@@ -46,7 +54,7 @@ async function cleanFolder(folderPath) {
 
 async function findPageDirectories(folderPath) {
     const pageDirectories = []
-    const entries = await fs.readdir(folderPath, { withFileTypes: true })
+    const entries = await fs.readdir(folderPath, {withFileTypes: true})
 
     for (const entry of entries) {
         pageDirectories.push(path.join(folderPath, entry.name))
@@ -68,31 +76,51 @@ async function findPageFactoryForPageType(data, pageFactoryTypeMap) {
 }
 
 /**
- * @param pageFolderPaths
- * @return {Promise<Record<string, {title: string, url: string}>>}
+ * @param {string[]} pageFolderPaths
+ * @return {Promise<MenuItemData[]>}
  */
-async function createUrlTitleMapForPageFolderPaths(pageFolderPaths) {
-    const map = {}
+async function createMenuItemDataItemsFromPageFolderPaths(pageFolderPaths) {
+    const menuItemDataItems = []
 
     for (const pageFolderPath of pageFolderPaths) {
-        const data = await readPageData(pageFolderPath)
+        const {url, title, impressivenessScore} = await readPageData(pageFolderPath)
 
-        map[data.url] = { title: data.title, url: data.url }
+        menuItemDataItems.push({title, url, impressivenessScore})
     }
 
-    return map
+    return menuItemDataItems.sort(compareMenuItemData)
+}
+
+/**
+ * @param {MenuItemData} a
+ * @param {MenuItemData} b
+ * @return {number}
+ */
+function compareMenuItemData(a, b) {
+    if (a.impressivenessScore > b.impressivenessScore) {
+        return -1
+    }
+
+    if (a.impressivenessScore < b.impressivenessScore) {
+        return 1
+    }
+
+    return 0
 }
 
 /**
  *
- * @param {Record<string, {title: string, url: string}>} urlTitleMap
+ * @param {MenuItemData[]} menuItemDataItems
  * @param {string} activeUrl
- * @return {Promise<{name: string, url: string, isActive: boolean}[]>}
+ * @return {Promise<MenuItem[]>}
  */
-async function createMenuItemsFromUrlTitleMap(urlTitleMap, activeUrl) {
+async function createMenuItemsFromMenuItemDataItems(menuItemDataItems, activeUrl) {
+    /**
+     * @type {MenuItem[]}
+     */
     const menuItems = []
 
-    for (const {title, url} of Object.values(urlTitleMap)) {
+    for (const {title, url} of menuItemDataItems) {
         menuItems.push({
             name: title,
             url: url,
@@ -103,10 +131,16 @@ async function createMenuItemsFromUrlTitleMap(urlTitleMap, activeUrl) {
     return menuItems
 }
 
-async function createSculpturePage(pageFolderPath, data, urlTitleMap) {
+/**
+ * @param {string} pageFolderPath
+ * @param {any} data
+ * @param {MenuItemData[]} menuItemDataItems
+ * @return {Promise<void>}
+ */
+async function createSculpturePage(pageFolderPath, data, menuItemDataItems) {
     const createSculpturePage = Handlebars.compile(sculpturePageTemplateString)
 
-    const menuItems = await createMenuItemsFromUrlTitleMap(urlTitleMap, data.url)
+    const menuItems = await createMenuItemsFromMenuItemDataItems(menuItemDataItems, data.url)
 
     await fs.mkdir(`build/${data.url}`)
 
@@ -155,10 +189,16 @@ async function createSculpturePage(pageFolderPath, data, urlTitleMap) {
     await fs.writeFile(`build/${data.url}/index.html`, result)
 }
 
-async function createAboutPage(pageFolderPath, data, urlTitleMap) {
+/**
+ * @param {string} pageFolderPath
+ * @param {any} data
+ * @param {MenuItemData[]} menuItemDataItems
+ * @return {Promise<void>}
+ */
+async function createAboutPage(pageFolderPath, data, menuItemDataItems) {
     const createAboutPage = Handlebars.compile(aboutPageTemplateString)
 
-    const menuItems = await createMenuItemsFromUrlTitleMap(urlTitleMap, data.url)
+    const menuItems = await createMenuItemsFromMenuItemDataItems(menuItemDataItems, data.url)
 
     await fs.mkdir(`build/${data.url}`)
 
@@ -181,10 +221,16 @@ async function createAboutPage(pageFolderPath, data, urlTitleMap) {
     await fs.writeFile(`build/${data.url}/index.html`, result)
 }
 
-async function createContactPage(pageFolderPath, data, urlTitleMap) {
+/**
+ * @param {string} pageFolderPath
+ * @param {any} data
+ * @param {MenuItemData[]} menuItemDataItems
+ * @return {Promise<void>}
+ */
+async function createContactPage(pageFolderPath, data, menuItemDataItems) {
     const createContactPage = Handlebars.compile(contactPageTemplateString)
 
-    const menuItems = await createMenuItemsFromUrlTitleMap(urlTitleMap, data.url)
+    const menuItems = await createMenuItemsFromMenuItemDataItems(menuItemDataItems, data.url)
 
     await fs.mkdir(`build/${data.url}`)
 
@@ -200,10 +246,16 @@ async function createContactPage(pageFolderPath, data, urlTitleMap) {
     await fs.writeFile(`build/${data.url}/index.html`, result)
 }
 
-async function createHomePage(pageFolderPath, data, urlTitleMap) {
+/**
+ * @param {string} pageFolderPath
+ * @param {any} data
+ * @param {MenuItemData[]} menuItemDataItems
+ * @return {Promise<void>}
+ */
+async function createHomePage(pageFolderPath, data, menuItemDataItems) {
     const createHomePage = Handlebars.compile(homePageTemplateString)
 
-    const menuItems = await createMenuItemsFromUrlTitleMap(urlTitleMap, data.url)
+    const menuItems = await createMenuItemsFromMenuItemDataItems(menuItemDataItems, data.url)
 
     await fs.mkdir(`build/images`)
 
@@ -239,12 +291,12 @@ await copyFiles('public', 'build')
 
 const pageFolderPaths = await findPageDirectories('data/pages')
 
-const urlTitleMap = await createUrlTitleMapForPageFolderPaths(pageFolderPaths)
+const menuItemDataItems = await createMenuItemDataItemsFromPageFolderPaths(pageFolderPaths)
 
 for (const pageFolderPath of pageFolderPaths) {
     const pageData = await readPageData(pageFolderPath)
 
     const createPage = await findPageFactoryForPageType(pageData, pageFactoryTypeMap)
 
-    await createPage(pageFolderPath, pageData, urlTitleMap)
+    await createPage(pageFolderPath, pageData, menuItemDataItems)
 }
