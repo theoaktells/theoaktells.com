@@ -1,13 +1,15 @@
 /**
- * @typedef {{title: string, url: string, dateCrated: Date}} MenuItemData
+ * @typedef {{title: string, url: string, impressivenessScore: number}} MenuItemData
+ */
+
+/**
+ * @typedef {{name: string, url: string, isActive: boolean}} MenuItem
  */
 
 import Handlebars from 'handlebars'
 import fs from 'fs/promises'
 import path from 'path'
 import sharp from 'sharp'
-import {compareDesc} from 'date-fns/compareDesc'
-import {parse} from 'date-fns/parse'
 
 const layoutTemplateString = await fs.readFile('templates/partials/layout.handlebars', 'utf8')
 const pageTemplateString = await fs.readFile('templates/partials/page.handlebars', 'utf8')
@@ -74,35 +76,51 @@ async function findPageFactoryForPageType(data, pageFactoryTypeMap) {
 }
 
 /**
- * @param pageFolderPaths
- * @return {Promise<Record<string, MenuItemData>>}
+ * @param {string[]} pageFolderPaths
+ * @return {Promise<MenuItemData[]>}
  */
-async function createMenuItemMapForPageFolderPaths(pageFolderPaths) {
-    const map = {}
+async function createMenuItemDataItemsFromPageFolderPaths(pageFolderPaths) {
+    const menuItemDataItems = []
 
     for (const pageFolderPath of pageFolderPaths) {
-        const {url, title, dateCreated} = await readPageData(pageFolderPath)
+        const {url, title, impressivenessScore} = await readPageData(pageFolderPath)
 
-        map[url] = {title, url, dateCreated: parse(dateCreated, 'dd-MM-yyyy', new Date())}
+        menuItemDataItems.push({title, url, impressivenessScore})
     }
 
-    return map
+    return menuItemDataItems.sort(compareMenuItemData)
+}
+
+/**
+ * @param {MenuItemData} a
+ * @param {MenuItemData} b
+ * @return {number}
+ */
+function compareMenuItemData(a, b) {
+    if (a.impressivenessScore > b.impressivenessScore) {
+        return -1
+    }
+
+    if (a.impressivenessScore < b.impressivenessScore) {
+        return 1
+    }
+
+    return 0
 }
 
 /**
  *
- * @param {Record<string, MenuItemData>} urlTitleMap
+ * @param {MenuItemData[]} menuItemDataItems
  * @param {string} activeUrl
- * @return {Promise<{name: string, url: string, isActive: boolean}[]>}
+ * @return {Promise<MenuItem[]>}
  */
-async function createMenuItemsFromUrlTitleMap(urlTitleMap, activeUrl) {
+async function createMenuItemsFromMenuItemDataItems(menuItemDataItems, activeUrl) {
+    /**
+     * @type {MenuItem[]}
+     */
     const menuItems = []
 
-    const menuItemData = Object.values(urlTitleMap)
-
-    const sortedMenuItemData = menuItemData.sort((a, b) => compareDesc(a.dateCreated, b.dateCreated))
-
-    for (const {title, url} of sortedMenuItemData) {
+    for (const {title, url} of menuItemDataItems) {
         menuItems.push({
             name: title,
             url: url,
@@ -113,10 +131,16 @@ async function createMenuItemsFromUrlTitleMap(urlTitleMap, activeUrl) {
     return menuItems
 }
 
-async function createSculpturePage(pageFolderPath, data, urlTitleMap) {
+/**
+ * @param {string} pageFolderPath
+ * @param {any} data
+ * @param {MenuItemData[]} menuItemDataItems
+ * @return {Promise<void>}
+ */
+async function createSculpturePage(pageFolderPath, data, menuItemDataItems) {
     const createSculpturePage = Handlebars.compile(sculpturePageTemplateString)
 
-    const menuItems = await createMenuItemsFromUrlTitleMap(urlTitleMap, data.url)
+    const menuItems = await createMenuItemsFromMenuItemDataItems(menuItemDataItems, data.url)
 
     await fs.mkdir(`build/${data.url}`)
 
@@ -165,10 +189,16 @@ async function createSculpturePage(pageFolderPath, data, urlTitleMap) {
     await fs.writeFile(`build/${data.url}/index.html`, result)
 }
 
-async function createAboutPage(pageFolderPath, data, urlTitleMap) {
+/**
+ * @param {string} pageFolderPath
+ * @param {any} data
+ * @param {MenuItemData[]} menuItemDataItems
+ * @return {Promise<void>}
+ */
+async function createAboutPage(pageFolderPath, data, menuItemDataItems) {
     const createAboutPage = Handlebars.compile(aboutPageTemplateString)
 
-    const menuItems = await createMenuItemsFromUrlTitleMap(urlTitleMap, data.url)
+    const menuItems = await createMenuItemsFromMenuItemDataItems(menuItemDataItems, data.url)
 
     await fs.mkdir(`build/${data.url}`)
 
@@ -191,10 +221,16 @@ async function createAboutPage(pageFolderPath, data, urlTitleMap) {
     await fs.writeFile(`build/${data.url}/index.html`, result)
 }
 
-async function createContactPage(pageFolderPath, data, urlTitleMap) {
+/**
+ * @param {string} pageFolderPath
+ * @param {any} data
+ * @param {MenuItemData[]} menuItemDataItems
+ * @return {Promise<void>}
+ */
+async function createContactPage(pageFolderPath, data, menuItemDataItems) {
     const createContactPage = Handlebars.compile(contactPageTemplateString)
 
-    const menuItems = await createMenuItemsFromUrlTitleMap(urlTitleMap, data.url)
+    const menuItems = await createMenuItemsFromMenuItemDataItems(menuItemDataItems, data.url)
 
     await fs.mkdir(`build/${data.url}`)
 
@@ -210,10 +246,16 @@ async function createContactPage(pageFolderPath, data, urlTitleMap) {
     await fs.writeFile(`build/${data.url}/index.html`, result)
 }
 
-async function createHomePage(pageFolderPath, data, urlTitleMap) {
+/**
+ * @param {string} pageFolderPath
+ * @param {any} data
+ * @param {MenuItemData[]} menuItemDataItems
+ * @return {Promise<void>}
+ */
+async function createHomePage(pageFolderPath, data, menuItemDataItems) {
     const createHomePage = Handlebars.compile(homePageTemplateString)
 
-    const menuItems = await createMenuItemsFromUrlTitleMap(urlTitleMap, data.url)
+    const menuItems = await createMenuItemsFromMenuItemDataItems(menuItemDataItems, data.url)
 
     await fs.mkdir(`build/images`)
 
@@ -249,12 +291,12 @@ await copyFiles('public', 'build')
 
 const pageFolderPaths = await findPageDirectories('data/pages')
 
-const urlTitleMap = await createMenuItemMapForPageFolderPaths(pageFolderPaths)
+const menuItemDataItems = await createMenuItemDataItemsFromPageFolderPaths(pageFolderPaths)
 
 for (const pageFolderPath of pageFolderPaths) {
     const pageData = await readPageData(pageFolderPath)
 
     const createPage = await findPageFactoryForPageType(pageData, pageFactoryTypeMap)
 
-    await createPage(pageFolderPath, pageData, urlTitleMap)
+    await createPage(pageFolderPath, pageData, menuItemDataItems)
 }
