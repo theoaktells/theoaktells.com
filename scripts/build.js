@@ -13,7 +13,7 @@ const homePageTemplateString = await fs.readFile('templates/partials/homePage.ha
 Handlebars.registerPartial('layout', layoutTemplateString)
 Handlebars.registerPartial('page', pageTemplateString)
 
-Handlebars.registerHelper('breaklines', (text) => {
+Handlebars.registerHelper('breakLines', (text) => {
     text = Handlebars.Utils.escapeExpression(text)
     text = text.replace(/(\r\n|\n|\r)/gm, '<br>')
     return new Handlebars.SafeString(text)
@@ -132,9 +132,9 @@ async function createSculpturePage(pageFolderPath, data, urlTitleMap) {
             .toFile(imageThumbnailBuildPath)
 
         images.push({
-            url: imageUrl,
+            url: `${data.url}/${imageUrl}`,
             thumbnail: {
-                url: imageThumbnailUrl,
+                url: `${data.url}/${imageThumbnailUrl}`,
                 height: outputInfo.height,
                 width: outputInfo.width,
             }
@@ -166,6 +166,8 @@ async function createAboutPage(pageFolderPath, data, urlTitleMap) {
 
     await copyFiles(`data/pages/${data.url}/images`, `build/${data.url}/images`)
 
+    const images = data.imageUrls.map(imageUrl => `${data.url}/${imageUrl}`)
+
     const result = createAboutPage({
         url: data.url,
         title: data.title,
@@ -173,7 +175,7 @@ async function createAboutPage(pageFolderPath, data, urlTitleMap) {
         description: data.description,
         menuItems,
         text: data.text,
-        images: data.imageUrls,
+        images,
     })
 
     await fs.writeFile(`build/${data.url}/index.html`, result)
@@ -225,7 +227,11 @@ const pageFactoryTypeMap = {
     home: createHomePage
 }
 
-await fs.mkdir('build')
+try {
+    await fs.mkdir('build')
+} catch {
+    // ignore
+}
 
 await cleanFolder('build')
 
