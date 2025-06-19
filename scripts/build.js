@@ -1,7 +1,13 @@
+/**
+ * @typedef {{title: string, url: string, dateCrated: Date}} MenuItemData
+ */
+
 import Handlebars from 'handlebars'
 import fs from 'fs/promises'
 import path from 'path'
 import sharp from 'sharp'
+import {compareDesc} from 'date-fns/compareDesc'
+import {parse} from 'date-fns/parse'
 
 const layoutTemplateString = await fs.readFile('templates/partials/layout.handlebars', 'utf8')
 const pageTemplateString = await fs.readFile('templates/partials/page.handlebars', 'utf8')
@@ -31,13 +37,13 @@ async function copyFiles(srcFolder, destFolder) {
 }
 
 async function cleanFolder(folderPath) {
-    const entries = await fs.readdir(folderPath, { withFileTypes: true })
+    const entries = await fs.readdir(folderPath, {withFileTypes: true})
 
     for (const entry of entries) {
         const fullPath = path.join(folderPath, entry.name)
 
         if (entry.isDirectory()) {
-            await fs.rm(fullPath, { recursive: true, force: true })
+            await fs.rm(fullPath, {recursive: true, force: true})
         } else {
             await fs.unlink(fullPath)
         }
@@ -46,7 +52,7 @@ async function cleanFolder(folderPath) {
 
 async function findPageDirectories(folderPath) {
     const pageDirectories = []
-    const entries = await fs.readdir(folderPath, { withFileTypes: true })
+    const entries = await fs.readdir(folderPath, {withFileTypes: true})
 
     for (const entry of entries) {
         pageDirectories.push(path.join(folderPath, entry.name))
@@ -69,15 +75,15 @@ async function findPageFactoryForPageType(data, pageFactoryTypeMap) {
 
 /**
  * @param pageFolderPaths
- * @return {Promise<Record<string, {title: string, url: string}>>}
+ * @return {Promise<Record<string, MenuItemData>>}
  */
-async function createUrlTitleMapForPageFolderPaths(pageFolderPaths) {
+async function createMenuItemMapForPageFolderPaths(pageFolderPaths) {
     const map = {}
 
     for (const pageFolderPath of pageFolderPaths) {
-        const data = await readPageData(pageFolderPath)
+        const {url, title, dateCreated} = await readPageData(pageFolderPath)
 
-        map[data.url] = { title: data.title, url: data.url }
+        map[url] = {title, url, dateCreated: parse(dateCreated, 'dd-MM-yyyy', new Date())}
     }
 
     return map
@@ -85,14 +91,18 @@ async function createUrlTitleMapForPageFolderPaths(pageFolderPaths) {
 
 /**
  *
- * @param {Record<string, {title: string, url: string}>} urlTitleMap
+ * @param {Record<string, MenuItemData>} urlTitleMap
  * @param {string} activeUrl
  * @return {Promise<{name: string, url: string, isActive: boolean}[]>}
  */
 async function createMenuItemsFromUrlTitleMap(urlTitleMap, activeUrl) {
     const menuItems = []
 
-    for (const {title, url} of Object.values(urlTitleMap)) {
+    const menuItemData = Object.values(urlTitleMap)
+
+    const sortedMenuItemData = menuItemData.sort((a, b) => compareDesc(a.dateCreated, b.dateCreated))
+
+    for (const {title, url} of sortedMenuItemData) {
         menuItems.push({
             name: title,
             url: url,
@@ -239,7 +249,7 @@ await copyFiles('public', 'build')
 
 const pageFolderPaths = await findPageDirectories('data/pages')
 
-const urlTitleMap = await createUrlTitleMapForPageFolderPaths(pageFolderPaths)
+const urlTitleMap = await createMenuItemMapForPageFolderPaths(pageFolderPaths)
 
 for (const pageFolderPath of pageFolderPaths) {
     const pageData = await readPageData(pageFolderPath)
