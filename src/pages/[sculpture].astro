@@ -1,0 +1,33 @@
+---
+import {type CollectionEntry, getCollection} from 'astro:content'
+import Layout from '../layouts/Layout.astro'
+import Title from '../components/Title.astro'
+import Text from '../components/Text.astro'
+import Breadcrumbs from '../components/Breadcrumbs.astro'
+import Gallery from '../components/Gallery.astro'
+
+interface Props {
+    sculpture: CollectionEntry<'sculptures'>,
+}
+
+export async function getStaticPaths() {
+  const sculptures = await getCollection('sculptures')
+
+  return sculptures.map(sculpture => ({
+    params: {sculpture: sculpture.id},
+    props: {sculpture}
+  }))
+}
+
+const {sculpture} = Astro.props
+---
+
+<Layout title={sculpture.data.title} description={sculpture.data.description}
+        previewImageUrl={sculpture.data.previewImageUrl}>
+    <Breadcrumbs title={sculpture.data.title} url={sculpture.id}/>
+    <Title title={sculpture.data.title}/>
+    <Gallery imageUrls={sculpture.data.imageUrls}/>
+    <Text>
+        <Fragment set:html={sculpture.data.context}/>
+    </Text>
+</Layout>
