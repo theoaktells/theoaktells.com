@@ -12,6 +12,7 @@
   "author": "jlvn",
   "license": "ISC",
   "dependencies": {
+    "@astrojs/sitemap": "^3.4.1",
     "astro": "^5.10.1",
     "sharp": "^0.34.2"
   }
