@@ -1,7 +1,7 @@
 {
   "name": "theoaktells.com",
   "version": "1.0.0",
-  "description": "website for sculptures",
+  "description": "Website for sculptures",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -12,16 +12,6 @@
   "author": "jlvn",
   "license": "ISC",
   "dependencies": {
-    "handlebars": "^4.7.8",
-    "nodemon": "^3.1.10",
-    "serve": "^14.2.4",
-    "sharp": "^0.34.2",
     "astro": "^5.10.1"
-  },
-  "nodemonConfig": {
-    "ext": "js, json, css, handlebars",
-    "ignore": [
-      "build/**"
-    ]
   }
 }
