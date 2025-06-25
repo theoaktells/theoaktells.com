@@ -1,7 +1,11 @@
 ---
 import type {MenuItemProps} from '../types/MenuItemProps'
 
-const {isActive, name, url} = (Astro.props as MenuItemProps)
+interface Props extends MenuItemProps {
+
+}
+
+const {isActive, name, url} = Astro.props
 ---
 
 <li class:list={['jw-menu-item', isActive ? 'jw-menu-is-active' : '']}>

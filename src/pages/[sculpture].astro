@@ -1,10 +1,14 @@
 ---
-import {getCollection} from 'astro:content'
+import {type CollectionEntry, getCollection} from 'astro:content'
 import Layout from '../layouts/Layout.astro'
 import Title from '../components/Title.astro'
 import Text from '../components/Text.astro'
 import Breadcrumbs from '../components/Breadcrumbs.astro'
 import Gallery from '../components/Gallery.astro'
+
+interface Props {
+    sculpture: CollectionEntry<'sculptures'>,
+}
 
 export async function getStaticPaths() {
   const sculptures = await getCollection('sculptures')
