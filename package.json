@@ -12,6 +12,7 @@
   "author": "jlvn",
   "license": "ISC",
   "dependencies": {
-    "astro": "^5.10.1"
+    "astro": "^5.10.1",
+    "sharp": "^0.34.2"
   }
 }
