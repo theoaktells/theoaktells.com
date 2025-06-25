@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "website for sculptures",
   "scripts": {
-    "build:dev": "nodemon scripts/build.js",
-    "run:dev": "serve build/",
-    "build": "node scripts/build.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
   "type": "module",
   "author": "jlvn",
@@ -15,7 +15,8 @@
     "handlebars": "^4.7.8",
     "nodemon": "^3.1.10",
     "serve": "^14.2.4",
-    "sharp": "^0.34.2"
+    "sharp": "^0.34.2",
+    "astro": "^5.10.1"
   },
   "nodemonConfig": {
     "ext": "js, json, css, handlebars",

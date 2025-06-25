@@ -1,0 +1,11 @@
+---
+import type {MenuItemProps} from '../types/MenuItemProps'
+
+const {isActive, name, url} = (Astro.props as MenuItemProps)
+---
+
+<li class:list={['jw-menu-item', isActive ? 'jw-menu-is-active' : '']}>
+    <a class:list={['jw-menu-link', isActive ? 'js-active-menu-item' : '']} href={url}>
+        <span>{name}</span>
+    </a>
+</li>
