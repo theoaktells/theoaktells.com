@@ -24,35 +24,40 @@ function compareMenuItemData(a: CollectionEntry<'sculptures'>, b: CollectionEntr
   return 0
 }
 
+function isPathActive(expectedPath: string, currentPath: string): boolean {
+    const regex = new RegExp(`^${expectedPath}\/?$`)
+    return regex.test(currentPath)
+}
+
 function createMenuItems(sculptures: CollectionEntry<'sculptures'>[], currentPath: string): MenuItemProps[] {
   const menuItems: MenuItemProps[] = []
 
   menuItems.push({
     name: 'Home',
     url: '/',
-    isActive: currentPath === '/',
+    isActive: isPathActive('/', currentPath),
   })
 
   const sculptureMenuItems: MenuItemProps[] = sculptures
     .sort(compareMenuItemData)
     .map(item => ({
       name: item.data.title,
-      url: `/${item.id}`,
-      isActive: currentPath === `/${item.id}`
+      url: `/${item.id}/`,
+      isActive: isPathActive(`/${item.id}`, currentPath),
     }))
 
   menuItems.push(...sculptureMenuItems)
 
   menuItems.push({
     name: 'Over',
-    url: '/about',
-    isActive: currentPath === '/about',
+    url: '/about/',
+    isActive: isPathActive('/about', currentPath),
   })
 
   menuItems.push({
     name: 'Contact',
-    url: '/contact',
-    isActive: currentPath === '/contact',
+    url: '/contact/',
+    isActive: isPathActive('/contact', currentPath),
   })
 
   return menuItems
