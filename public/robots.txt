@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://theoaktells.com/sitemap-index.xml
