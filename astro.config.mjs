@@ -8,5 +8,8 @@ export default defineConfig({
   site: 'https://theoaktells.com',
   integrations: [sitemap({
     lastmod: new Date(Date.now())
-  })]
+  })],
+  redirects: {
+    '/over': '/about'
+  }
 })
