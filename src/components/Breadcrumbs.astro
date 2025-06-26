@@ -7,15 +7,16 @@ interface Props {
 const {title, url} = Astro.props
 ---
 
-<nav class="jw-breadcrumbs" aria-label="Kruimelpad">
-    <ol>
+<nav>
+    <ol class="flex space-x-1 text-base">
         <li>
-            <a href="/" class="jw-breadcrumbs__link">Home</a>
+            <a href="/" class="text-accent hover:underline">Home</a>
         </li>
         <li>
-            <span class="jw-breadcrumbs__separator" aria-hidden="true">»</span><a href={`/${url}`}
-                                                                                  class="jw-breadcrumbs__link jw-breadcrumbs__link--current"
-                                                                                  aria-current="page">{title}</a>
+            <span class="jw-breadcrumbs__separator" aria-hidden="true">»</span>
+        </li>
+        <li>
+            <a href={`/${url}`} class="hover:text-accent hover:underline" aria-current="page">{title}</a>
         </li>
     </ol>
 </nav>

@@ -8,8 +8,20 @@ interface Props extends MenuItemProps {
 const {isActive, name, url} = Astro.props
 ---
 
-<li class:list={['jw-menu-item', isActive ? 'jw-menu-is-active' : '']}>
-    <a class:list={['jw-menu-link', isActive ? 'js-active-menu-item' : '']} href={url}>
+<li>
+    <a class:list={['block',
+      'w-full',
+      'text-lg',
+      'font-serif',
+      'font-bold',
+      'px-2',
+      'br-5',
+      'rounded-sm',
+      'hover:bg-accent',
+      'hover:text-primary-dark',
+      'mb-1',
+      isActive ? 'bg-accent-opacity-10 text-accent' : 'text-secondary']}
+       href={url}>
         <span>{name}</span>
     </a>
 </li>
