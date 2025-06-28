@@ -1,13 +1,15 @@
 ---
 interface Props {
     title: string
+    class?: string
 }
 
-const {title} = Astro.props
+const {title, class: className} = Astro.props
 ---
 
-<div class="jw-tree-node jw-element jw-image-text jw-node-is-first-child">
-    <div class="jw-element-imagetext-text">
-        <h1 class="jw-heading-200">{title}</h1>
-    </div>
-</div>
+<h1 class:list={['text-5xl',
+    'tracking-tighter',
+    'text-accent',
+    'font-bold',
+    'font-serif',
+    className]}>{title}</h1>

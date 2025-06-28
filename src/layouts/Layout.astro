@@ -1,10 +1,13 @@
 ---
+import MobileMenuItem from '../components/MobileMenuItem.astro'
 import MenuItem from '../components/MenuItem.astro'
 import {getCollection} from 'astro:content'
 import type {CollectionEntry} from 'astro:content'
 import type {MenuItemProps} from '../types/MenuItemProps'
 import {getImage} from 'astro:assets'
 import type {ImageMetadata} from 'astro'
+
+import '../styles/global.css'
 
 interface Props {
   title: string
@@ -25,8 +28,8 @@ function compareMenuItemData(a: CollectionEntry<'sculptures'>, b: CollectionEntr
 }
 
 function isPathActive(expectedPath: string, currentPath: string): boolean {
-    const regex = new RegExp(`^${expectedPath}\/?$`)
-    return regex.test(currentPath)
+  const regex = new RegExp(`^${expectedPath}\/?$`)
+  return regex.test(currentPath)
 }
 
 function createMenuItems(sculptures: CollectionEntry<'sculptures'>[], currentPath: string): MenuItemProps[] {
@@ -80,12 +83,12 @@ const previewImageResult = await getImage({src: images[previewImageUrl](), forma
     <title>{title} - the oak tells</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="sitemap" href="/sitemap-index.xml"/>
     <link rel="canonical" href={Astro.url}>
     <meta property="og:title" content={`${title} - the oak tells`}>
     <meta property="og:url" content={Astro.url}>
     <meta name="description" property="og:description"
-          content={description} />
+          content={description}/>
     <meta property="og:image"
           content={new URL(previewImageResult.src, Astro.site)}>
     <meta name="twitter:card" content="summary_large_image">
@@ -95,7 +98,6 @@ const previewImageResult = await getImage({src: images[previewImageUrl](), forma
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&family=Questrial&display=swap"
           rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="/index.css">
     <meta name="generator" content={Astro.generator}/>
     <script is:inline src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.min.css"
@@ -105,99 +107,84 @@ const previewImageResult = await getImage({src: images[previewImageUrl](), forma
             integrity="sha512-cWEytOR8S4v/Sd3G5P1Yb7NbYgF1YAUzlg1/XpDuouZVo3FEiMXbeWh4zewcYu/sXYQR5PgYLRbhf18X/0vpRg=="
             crossorigin="anonymous" referrerpolicy="no-referrer"/>
 </head>
-<body class="jw-is-slideshow jw-strips--align-left jw-header-is-text jw-is-segment-page jw-is-frontend jw-is-no-sidebar jw-is-no-messagebar jw-is-no-touch-device jw-is-no-mobile jw-menu-is-desktop jw-is-menu-multiline jw-menu-is-collapsed">
-<div class="jw-background"></div>
-<div class="jw-body">
-    <div class="jw-mobile-menu jw-mobile-is-text js-mobile-menu">
-        <span class="jw-mobile-menu__button jw-mobile-menu__button--dummy"></span>
-        <div class="jw-mobile-header jw-mobile-header--text">
-            <a class="jw-mobile-header-content" href="/">
-                <div class="jw-mobile-text">
-                    <span style="color: #65c77a; font-size: 120%;">the oak tells</span>
-                </div>
-            </a>
-        </div>
-        <button id="mobile-menu-toggle-button" type="button" class="jw-mobile-menu__button jw-mobile-toggle"
-                aria-label="Open / sluit menu">
-            <span class="jw-icon-burger"></span>
-        </button>
-    </div>
-    <nav class="menu jw-menu-clone jw-menu-collapse">
-        <ul class="jw-menu jw-menu-vertical">
-          {
-            menuItems.map(menuItem =>
-                    <MenuItem {...menuItem}/>)
-          }
-        </ul>
-    </nav>
-    <div class="content-root">
-        <div class="right">
-            <div class="right-content">
-                <main class="block-content">
-                    <div class="jw-section jw-section-content jw-responsive">
-                        <div class="jw-tree-node jw-element jw-strip-root jw-tree-container">
-                            <div class="jw-tree-node jw-element jw-strip jw-tree-container jw-strip--default jw-strip--style-color jw-strip--color-default jw-strip--padding-both jw-node-is-first-child jw-strip--primary jw-node-is-last-child">
-                                <div class="jw-strip__content-container">
-                                    <div class="jw-strip__content jw-responsive lt600 lt640 lt800">
-                                        <slot/>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </main>
-                <footer class="block-footer">
-                    <div class="jw-section jw-section-footer jw-responsive">
-                        <div class="jw-strip jw-strip--default jw-strip--style-color jw-strip--primary jw-strip--color-default jw-strip--padding-both">
-                            <div class="jw-strip__content-container">
-                                <div class="jw-strip__content jw-responsive lt640 lt800 lt600">
-                                    <div class="jw-tree-node jw-element jw-simple-root jw-tree-container jw-tree-container--empty">
-                                    </div>
-                                    <div class="jw-credits clear">
-                                        <div class="jw-credits-owner">
-                                            <div id="jw-footer-text">
-                                                <div class="jw-footer-text-content">
-                                                    © 2009 - {(new Date()).getFullYear()} the oak tells
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="jw-credits-right">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
-            </div>
-        </div>
-        <div class="left">
-            <div class="left-content simple-brick-max-width-sidebar">
-                <div class="logo-wrapper js-topbar-content-container">
-                    <div class="clear">
-                        <div class="jw-header-logo">
-                            <div class="jw-header jw-header-title-container jw-header-text jw-header-text-toggle">
-                                <a class="jw-header-title" href="/">
-                                    <span style="color: #65c77a; font-size: 120%;">the oak tells</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="logo-seperator"></div>
-                </div>
-                <nav class="nav jw-menu-copy">
-                    <ul id="jw-menu" class="jw-menu jw-menu-vertical sf-js-enabled sf-arrows"
-                        style="touch-action: pan-y;">
-                      {
-                        menuItems.map(menuItem =>
-                                <MenuItem {...menuItem}/>)
-                      }
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </div>
-</div>
+<body class="box-border bg-secondary text-primary-dark flex flex-col min-h-dvh min-w-83">
+<section class="bg-primary z-20 w-full flex justify-between lg:hidden">
+    <div class="w-11"></div>
+    <article class="flex grow justify-center">
+        <a class:list={['text-4xl',
+          'tracking-tighter',
+          'text-accent',
+          'font-bold',
+          'p-2',
+          'block',
+          'font-serif']}
+           href="/">the oak tells</a>
+    </article>
+    <button id="mobile-menu-toggle-button" type="button"
+            class:list={[
+              'flex-end',
+              'cursor-pointer',
+              'hover:bg-primary-light',
+              'focus:bg-primary-ligther',
+              'px-3',
+              'rounded-sm']}
+            aria-label="Open en sluit menu">
+        <span class:list={[
+          'hamburger-icon'
+        ]}></span>
+    </button>
+</section>
+<nav id="mobile-menu" class:list={['bg-primary',
+  'w-full',
+  'top-14',
+  'z-10',
+  'transition-all',
+  'rounded-b-sm',
+  'opacity-100',
+  'translate-0',
+  'absolute',
+  'mobile-menu__closed',
+  'lg:hidden',
+  'p-3']}>
+    <ul class="flex flex-col w-full items-center">
+      {
+        menuItems.map(({name, url, isActive}) =>
+                <MobileMenuItem name={name} url={url} isActive={isActive}/>)
+      }
+    </ul>
+</nav>
+<section class="flex flex-row-reverse w-full lg:min-h-dvh">
+    <article class="w-full p-5 lg:pt-10 lg:w-3/5">
+        <section class="lg:max-w-145">
+            <main class="mb-16 space-y-4">
+                <slot/>
+            </main>
+            <footer class="bg-secondary-dark px-5 py-6 rounded-sm">
+                © 2009 - {(new Date()).getFullYear()} the oak tells
+            </footer>
+        </section>
+    </article>
+    <article class="w-2/5 min-w-110 bg-primary flex-col items-end hidden lg:flex">
+        <section class="ml-20 pl-10 pt-18 pr-8">
+            <a class:list={['text-6xl',
+              'tracking-tighter',
+              'text-accent',
+              'font-bold',
+              'mb-8',
+              'block',
+              'font-serif']}
+               href="/">the oak tells</a>
+            <nav>
+                <ul>
+                  {
+                    menuItems.map(({name, url, isActive}) =>
+                            <MenuItem name={name} url={url} isActive={isActive}/>)
+                  }
+                </ul>
+            </nav>
+        </section>
+    </article>
+</section>
 </body>
 </html>
 <script is:inline defer src="/index.js"/>

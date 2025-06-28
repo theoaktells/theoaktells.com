@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+@theme {
+    --color-primary-ligther: #483d36;
+    --color-primary-light: #3f362f;
+    --color-primary: #39312b;
+    --color-primary-dark: #29231f;
+    --color-secondary: #f8f2dc;
+    --color-secondary-dark: #f4eac7;
+    --color-accent: #65c77a;
+    --color-accent-opacity-10: rgba(101, 199, 122, 0.1);
+
+    --font-sans: "Lato", "Sans-Serif";
+    --font-serif: "Questrial", "Serif";
+}
+
+.mobile-menu__closed {
+    @apply -z-10 opacity-0 -top-20;
+}
+
+.hamburger-icon {
+    @apply my-1 block relative h-0.5 bg-secondary w-5 rounded-xs transition-transform
+    before:content-[''] before:absolute before:-top-1.5 before:rounded-xs before:block before:h-0.5 before:bg-secondary
+    before:w-5
+    after:content-[''] after:absolute after:top-1.5 after:rounded-xs after:block after:h-0.5 after:bg-secondary
+    after:w-5;
+}
+
+.hamburger-icon__cross {
+    @apply bg-transparent rotate-90
+    before:rotate-45 before:translate-y-1.5 before:-translate-x-0.5 before:w-6
+    after:-rotate-45 after:-translate-y-1.5 after:-translate-x-0.5 after:w-6;
+}

@@ -8,7 +8,7 @@ interface Props {
 const { imageUrls} = Astro.props
 ---
 
-<div class="jw-tree-node jw-element jw-album-gallery jw-node-is-first-child">
+<section>
     <div class="fotorama"
          data-allowfullscreen="true"
          data-fit="contain"
@@ -25,4 +25,4 @@ const { imageUrls} = Astro.props
           imageUrls.map(imageUrl => <GalleryImage url={imageUrl} />)
         }
     </div>
-</div>
+</section>
