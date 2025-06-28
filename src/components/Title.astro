@@ -1,13 +1,15 @@
 ---
 interface Props {
     title: string
+    class?: string
 }
 
-const {title} = Astro.props
+const {title, class: className} = Astro.props
 ---
 
 <h1 class:list={['text-5xl',
     'tracking-tighter',
     'text-accent',
     'font-bold',
-    'font-serif']}>{title}</h1>
+    'font-serif',
+    className]}>{title}</h1>

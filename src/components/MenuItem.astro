@@ -2,10 +2,10 @@
 import type {MenuItemProps} from '../types/MenuItemProps'
 
 interface Props extends MenuItemProps {
-
+  class?: string
 }
 
-const {isActive, name, url} = Astro.props
+const {isActive, name, url, class: className} = Astro.props
 ---
 
 <li>
@@ -20,7 +20,8 @@ const {isActive, name, url} = Astro.props
       'hover:bg-accent',
       'hover:text-primary-dark',
       'mb-1',
-      isActive ? 'bg-accent-opacity-10 text-accent' : 'text-secondary']}
+      isActive ? 'bg-accent-opacity-10 text-accent' : 'text-secondary',
+      className]}
        href={url}>
         <span>{name}</span>
     </a>

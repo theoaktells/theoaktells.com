@@ -1,0 +1,19 @@
+---
+import type {MenuItemProps} from '../types/MenuItemProps'
+import MenuItem from './MenuItem.astro'
+
+interface Props extends MenuItemProps {
+}
+
+const {isActive, name, url} = Astro.props
+---
+
+<MenuItem isActive={isActive}
+          name={name}
+          url={url}
+          class:list={[
+            'px-15',
+            'py-2',
+            'text-xl',
+            'mb-2'
+          ]}/>

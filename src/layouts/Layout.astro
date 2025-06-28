@@ -1,4 +1,5 @@
 ---
+import MobileMenuItem from '../components/MobileMenuItem.astro'
 import MenuItem from '../components/MenuItem.astro'
 import {getCollection} from 'astro:content'
 import type {CollectionEntry} from 'astro:content'
@@ -106,32 +107,55 @@ const previewImageResult = await getImage({src: images[previewImageUrl](), forma
             integrity="sha512-cWEytOR8S4v/Sd3G5P1Yb7NbYgF1YAUzlg1/XpDuouZVo3FEiMXbeWh4zewcYu/sXYQR5PgYLRbhf18X/0vpRg=="
             crossorigin="anonymous" referrerpolicy="no-referrer"/>
 </head>
-<body class="box-border bg-secondary text-primary-dark flex min-h-dvh">
-<!--<div class="jw-mobile-menu jw-mobile-is-text js-mobile-menu">-->
-<!--    <span class="jw-mobile-menu__button jw-mobile-menu__button&#45;&#45;dummy"></span>-->
-<!--    <div class="jw-mobile-header jw-mobile-header&#45;&#45;text">-->
-<!--        <a class="jw-mobile-header-content" href="/">-->
-<!--            <div class="jw-mobile-text">-->
-<!--                <span style="color: #65c77a; font-size: 120%;">the oak tells</span>-->
-<!--            </div>-->
-<!--        </a>-->
-<!--    </div>-->
-<!--    <button id="mobile-menu-toggle-button" type="button" class="jw-mobile-menu__button jw-mobile-toggle"-->
-<!--            aria-label="Open / sluit menu">-->
-<!--        <span class="jw-icon-burger"></span>-->
-<!--    </button>-->
-<!--</div>-->
-<!--<nav class="menu jw-menu-clone jw-menu-collapse">-->
-<!--    <ul class="jw-menu jw-menu-vertical">-->
-<!--      {-->
-<!--        menuItems.map(menuItem =>-->
-<!--                <MenuItem {...menuItem}/>)-->
-<!--      }-->
-<!--    </ul>-->
-<!--</nav>-->
-<section class="flex flex-row-reverse w-full">
-    <article class="w-3/5 p-10">
-        <section class="max-w-145">
+<body class="box-border bg-secondary text-primary-dark flex flex-col min-h-dvh min-w-83">
+<section class="bg-primary z-20 w-full flex justify-between lg:hidden">
+    <div class="w-11"></div>
+    <article class="flex grow justify-center">
+        <a class:list={['text-4xl',
+          'tracking-tighter',
+          'text-accent',
+          'font-bold',
+          'p-2',
+          'block',
+          'font-serif']}
+           href="/">the oak tells</a>
+    </article>
+    <button id="mobile-menu-toggle-button" type="button"
+            class:list={[
+              'flex-end',
+              'cursor-pointer',
+              'hover:bg-primary-light',
+              'focus:bg-primary-ligther',
+              'px-3',
+              'rounded-sm']}
+            aria-label="Open en sluit menu">
+        <span class:list={[
+          'hamburger-icon'
+        ]}></span>
+    </button>
+</section>
+<nav id="mobile-menu" class:list={['bg-primary',
+  'w-full',
+  'top-14',
+  'z-10',
+  'transition-all',
+  'rounded-b-sm',
+  'opacity-100',
+  'translate-0',
+  'absolute',
+  'mobile-menu__closed',
+  'lg:hidden',
+  'p-3']}>
+    <ul class="flex flex-col w-full items-center">
+      {
+        menuItems.map(({name, url, isActive}) =>
+                <MobileMenuItem name={name} url={url} isActive={isActive}/>)
+      }
+    </ul>
+</nav>
+<section class="flex flex-row-reverse w-full lg:min-h-dvh">
+    <article class="w-full p-5 lg:pt-10 lg:w-3/5">
+        <section class="lg:max-w-145">
             <main class="mb-16 space-y-4">
                 <slot/>
             </main>
@@ -140,7 +164,7 @@ const previewImageResult = await getImage({src: images[previewImageUrl](), forma
             </footer>
         </section>
     </article>
-    <article class="w-2/5 min-w-110 bg-primary flex flex-col items-end">
+    <article class="w-2/5 min-w-110 bg-primary flex-col items-end hidden lg:flex">
         <section class="ml-20 pl-10 pt-18 pr-8">
             <a class:list={['text-6xl',
               'tracking-tighter',
