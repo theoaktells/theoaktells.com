@@ -94,18 +94,7 @@ const previewImageResult = await getImage({src: images[previewImageUrl](), forma
     <meta name="twitter:card" content="summary_large_image">
     <meta property="twitter:image"
           content={new URL(previewImageResult.src, Astro.site)}>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&family=Questrial&display=swap"
-          rel="stylesheet">
     <meta name="generator" content={Astro.generator}/>
-    <script is:inline src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"/>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.min.css"
-          integrity="sha512-bjwk1c6AQQOi6kaFhKNrqoCNLHpq8PT+I42jY/il3r5Ho/Wd+QUT6Pf3WGZa/BwSdRSIjVGBsPtPPo95gt/SLg=="
-          crossorigin="anonymous" referrerpolicy="no-referrer" rel="stylesheet"/>
-    <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.min.js"
-            integrity="sha512-cWEytOR8S4v/Sd3G5P1Yb7NbYgF1YAUzlg1/XpDuouZVo3FEiMXbeWh4zewcYu/sXYQR5PgYLRbhf18X/0vpRg=="
-            crossorigin="anonymous" referrerpolicy="no-referrer"/>
 </head>
 <body class="box-border bg-secondary text-primary flex flex-col min-h-dvh min-w-83">
 <section class="bg-primary z-20 w-full flex justify-between lg:hidden">
@@ -187,4 +176,15 @@ const previewImageResult = await getImage({src: images[previewImageUrl](), forma
 </section>
 </body>
 </html>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&family=Questrial&display=swap"
+      rel="stylesheet">
+<script is:inline src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.min.css"
+      integrity="sha512-bjwk1c6AQQOi6kaFhKNrqoCNLHpq8PT+I42jY/il3r5Ho/Wd+QUT6Pf3WGZa/BwSdRSIjVGBsPtPPo95gt/SLg=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" rel="stylesheet"/>
+<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.min.js"
+        integrity="sha512-cWEytOR8S4v/Sd3G5P1Yb7NbYgF1YAUzlg1/XpDuouZVo3FEiMXbeWh4zewcYu/sXYQR5PgYLRbhf18X/0vpRg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"/>
 <script is:inline defer src="/index.js"/>
