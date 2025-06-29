@@ -14,5 +14,8 @@ const imageResult = await getImage({src: images[url](), format: 'webp'})
 ---
 
 <a href={imageResult.src}>
-    <Image src={images[url]()} alt="image" height={50} />
+    <Image src={images[url]()}
+           alt="thumbail"
+           height={50}
+           layout="fixed" />
 </a>

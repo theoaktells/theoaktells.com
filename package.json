@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Website for sculptures",
   "scripts": {
+    "dev:host": "astro dev --host",
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
