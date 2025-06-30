@@ -6,7 +6,8 @@
     "dev:host": "astro dev --host",
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview --host",
+    "preview:host": "astro preview --host",
+    "preview": "astro preview",
     "astro": "astro"
   },
   "type": "module",
