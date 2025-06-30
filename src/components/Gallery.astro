@@ -1,28 +1,30 @@
 ---
-import GalleryImage from './GalleryImage.astro'
+import EmblaCarousel from './EmblaCarousel'
+import {getImage} from 'astro:assets'
+import type {Image} from '../types/Image'
+import type {ImageData } from '../types/ImageData'
 
 interface Props {
-    imageUrls: string[]
+    imageData: ImageData[]
 }
 
-const { imageUrls} = Astro.props
+const { imageData } = Astro.props
+
+const imageMap = import.meta.glob<{ default: ImageMetadata }>('/src/assets/**/*.webp')
+
+const images: Image[] = []
+for (const { url, alt } of imageData) {
+    const image = await getImage({src: imageMap[url](), format: 'webp', height: 400, densities: [1, 1.5]})
+    const thumbnail = await getImage({src: imageMap[url](), format: 'webp', height: 50, densities: [1, 1.5]})
+
+    images.push({
+        url: image.srcSet.attribute,
+        thumbnailUrl: thumbnail.srcSet.attribute,
+        alt
+    })
+}
 ---
 
 <section>
-    <div class="fotorama"
-         data-allowfullscreen="true"
-         data-fit="contain"
-         data-width="100%"
-         data-ratio="1.44"
-         data-maxwidth="590"
-         data-nav="thumbs"
-         data-navposition="bottom"
-         data-thumbheight="50"
-         data-transition="slide"
-         data-swipe="true"
-         data-fotorama-fullscreen-generated="true">
-        {
-          imageUrls.map(imageUrl => <GalleryImage url={imageUrl} />)
-        }
-    </div>
+    <EmblaCarousel images={images} client:idle />
 </section>

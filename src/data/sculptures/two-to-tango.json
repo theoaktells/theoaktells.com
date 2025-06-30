@@ -4,11 +4,26 @@
   "description": "It takes two to Tango is een combinatie van een eikensculptuur van 1.80 meter hoog en een serpentijnen beeld van ongeveer 250x10x5 cm.",
   "previewImageUrl": "/src/assets/sculptures/two-to-tango/1.webp",
   "context": "It takes two to Tango is een combinatie van een eikensculptuur van 1.80 meter hoog en een serpentijnen beeld van ongeveer 250x10x5 cm. Het beeld staat op een ovaal van donker natuursteen<br><br>Het beeld laat een danspaar zien, die de tango dansen. De achterkant is strak en stilistisch, de voorkant heeft een realistisch, speels perspectief.",
-  "imageUrls": [
-    "/src/assets/sculptures/two-to-tango/1.webp",
-    "/src/assets/sculptures/two-to-tango/2.webp",
-    "/src/assets/sculptures/two-to-tango/3.webp",
-    "/src/assets/sculptures/two-to-tango/4.webp",
-    "/src/assets/sculptures/two-to-tango/5.webp"
+  "images": [
+    {
+      "url": "/src/assets/sculptures/two-to-tango/1.webp",
+      "alt": "Een stenen standbeeld van een danspaar in een houten pilaar."
+    },
+    {
+      "url": "/src/assets/sculptures/two-to-tango/2.webp",
+      "alt": "Een stenen standbeeld van een danspaar."
+    },
+    {
+      "url": "/src/assets/sculptures/two-to-tango/3.webp",
+      "alt": "Een stenen standbeeld van een danspaar."
+    },
+    {
+      "url": "/src/assets/sculptures/two-to-tango/4.webp",
+      "alt": "Een stenen standbeeld van een danspaar."
+    },
+    {
+      "url": "/src/assets/sculptures/two-to-tango/5.webp",
+      "alt": "Een stenen standbeeld van een danspaar."
+    }
   ]
 }

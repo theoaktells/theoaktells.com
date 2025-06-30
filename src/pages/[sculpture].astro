@@ -26,7 +26,7 @@ const {sculpture} = Astro.props
         previewImageUrl={sculpture.data.previewImageUrl}>
     <Breadcrumbs title={sculpture.data.title} url={sculpture.id}/>
     <Title title={sculpture.data.title}/>
-    <Gallery imageUrls={sculpture.data.imageUrls}/>
+    <Gallery imageData={sculpture.data.images}/>
     <Text>
         <Fragment set:html={sculpture.data.context}/>
     </Text>

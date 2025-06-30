@@ -4,11 +4,26 @@
   "description": "Het maken van houten beelden is begonnen met het maken van rekwisieten voor de band Chelson Wells. ",
   "previewImageUrl": "/src/assets/sculptures/mask/1.webp",
   "context": "Het maken van houten beelden is begonnen met het maken van rekwisieten voor de band Chelson Wells. Chelson Wells is de naam van een nieuwe imaginaire wereld in ons planetenstelsel. De poort geeft toegang tot de authentieke wereld en wordt versierd door de drie ontdekkingsreizigers: de Sjamaan (JVEM) de leider (SAVME) en de Ziener (AVJ)",
-  "imageUrls": [
-    "/src/assets/sculptures/mask/1.webp",
-    "/src/assets/sculptures/mask/2.webp",
-    "/src/assets/sculptures/mask/3.webp",
-    "/src/assets/sculptures/mask/4.webp",
-    "/src/assets/sculptures/mask/5.webp"
+  "images": [
+    {
+      "url": "/src/assets/sculptures/mask/1.webp",
+      "alt": "Drie verschillende houten maskers."
+    },
+    {
+      "url": "/src/assets/sculptures/mask/2.webp",
+      "alt": "Houten masker met een lamp erin."
+    },
+    {
+      "url": "/src/assets/sculptures/mask/3.webp",
+      "alt": "Houten masker met een lamp erin."
+    },
+    {
+      "url": "/src/assets/sculptures/mask/4.webp",
+      "alt": "Houten masker met een schorpion erop."
+    },
+    {
+      "url": "/src/assets/sculptures/mask/5.webp",
+      "alt": "Podiumstuk met die houten masters erop waartussen een spandoek gespannen is waarop 'Chelson Wells' staat."
+    }
   ]
 }
