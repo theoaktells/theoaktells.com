@@ -1,4 +1,5 @@
 import React from 'react'
+import clsx from 'clsx'
 
 type PropType = {
   selected: boolean
@@ -7,15 +8,31 @@ type PropType = {
   onClick: () => void
 }
 
-const Thumbnail: React.FC<PropType> = (props) => {
-  const { selected, imageSrc, onClick, alt } = props
+const Thumbnail: React.FC<PropType> = props => {
+  const {
+    selected,
+    imageSrc,
+    onClick,
+    alt
+  } = props
 
   return (
-      <button className={`cursor-pointer flex shrink-0 rounded-sm overflow-hidden border-3 border-solid ${selected ? 'border-accent' : 'border-transparent'}`}
-              onClick={onClick}
-              type="button">
-        <img className="h-[50px]" srcSet={imageSrc} alt={alt} />
-      </button>
+    <button className={clsx(
+      'cursor-pointer',
+      'flex',
+      'shrink-0',
+      'rounded-sm',
+      'overflow-hidden',
+      'border-3',
+      'border-solid',
+      selected ? 'border-accent' : 'border-transparent'
+    )}
+            onClick={onClick}
+            type="button">
+      <img className="h-[50px]"
+           srcSet={imageSrc}
+           alt={alt}/>
+    </button>
   )
 }
 
