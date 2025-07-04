@@ -4,12 +4,30 @@
   "description": "",
   "previewImageUrl": "/src/assets/sculptures/mellow/6.webp",
   "context": "",
-  "imageUrls": [
-    "/src/assets/sculptures/mellow/1.webp",
-    "/src/assets/sculptures/mellow/2.webp",
-    "/src/assets/sculptures/mellow/3.webp",
-    "/src/assets/sculptures/mellow/4.webp",
-    "/src/assets/sculptures/mellow/5.webp",
-    "/src/assets/sculptures/mellow/6.webp"
+  "images": [
+    {
+      "url": "/src/assets/sculptures/mellow/1.webp",
+      "alt": "Deel van een boomstam."
+    },
+    {
+      "url": "/src/assets/sculptures/mellow/2.webp",
+      "alt": "Harry van de Ven bewerkt een boomstam met een kettingzaag."
+    },
+    {
+      "url": "/src/assets/sculptures/mellow/3.webp",
+      "alt": "Boomstam waar stukken uitgezaagd zijn."
+    },
+    {
+      "url": "/src/assets/sculptures/mellow/4.webp",
+      "alt": "Beginnend houten standbeeld gemaakt van een boomstam."
+    },
+    {
+      "url": "/src/assets/sculptures/mellow/5.webp",
+      "alt": "Beginnend houten standbeeld gemaakt van een boomstam."
+    },
+    {
+      "url": "/src/assets/sculptures/mellow/6.webp",
+      "alt": "Harry van de Ven bewerkt een beginnend houten standbeeld met een figuurzaag."
+    }
   ]
 }

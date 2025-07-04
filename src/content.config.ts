@@ -9,7 +9,10 @@ const sculptures = defineCollection({
     description: z.string(),
     context: z.string(),
     previewImageUrl: z.string(),
-    imageUrls: z.string().array()
+    images: z.object({
+      url: z.string(),
+      alt: z.string()
+    }).array(),
   })
 })
 

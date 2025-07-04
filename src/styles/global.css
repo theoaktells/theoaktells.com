@@ -31,3 +31,12 @@
     before:rotate-45 before:translate-y-1.5 before:-translate-x-0.5 before:w-6
     after:-rotate-45 after:-translate-y-1.5 after:-translate-x-0.5 after:w-6;
 }
+
+.spinner {
+    @apply border-10 border-primary/10 border-l-primary absolute top-0 left-0 bottom-0 right-0 m-auto rounded-full w-18
+    h-18 animate-spin;
+}
+
+.spinner.light {
+    @apply border-secondary/10 border-l-secondary;
+}

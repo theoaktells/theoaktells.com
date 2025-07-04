@@ -4,10 +4,22 @@
   "description": "Angel is een combinatie van een eikensculptuur van 2 meter hoog en een serpentijnen beeld van ongeveer 30x15x15 cm.",
   "previewImageUrl": "/src/assets/sculptures/angel/1.webp",
   "context": "Angel is een combinatie van een eikensculptuur van 2 meter hoog en een serpentijnen beeld van ongeveer 30x15x15 cm. Het beeld staat op een achthoekig plateau van donkere steen.<br><br>Het beeld heeft twee kanten: aan de voorkant het gezicht van een vrouw. De beperking van de steen zorgt ervoor dat niet de volledige vorm is uitgewerkt. De vrouw valt op door haar gedetailleerd gevormde haren. Ze heeft een bloem in haar haar. De achterkant van het beeld is organisch abstract gevormd.",
-  "imageUrls": [
-    "/src/assets/sculptures/angel/1.webp",
-    "/src/assets/sculptures/angel/2.webp",
-    "/src/assets/sculptures/angel/3.webp",
-    "/src/assets/sculptures/angel/4.webp"
+  "images": [
+    {
+      "url": "/src/assets/sculptures/angel/1.webp",
+      "alt": "Stenen beeld van een vrouw."
+    },
+    {
+      "url": "/src/assets/sculptures/angel/2.webp",
+      "alt": "Stenen beeld van een vrouw op een pilaar van hout."
+    },
+    {
+      "url": "/src/assets/sculptures/angel/3.webp",
+      "alt": "Stenen beeld van een zijprofiel van een vrouw."
+    },
+    {
+      "url": "/src/assets/sculptures/angel/4.webp",
+      "alt": "Stenen beeld van een zijprofiel van een vrouw."
+    }
   ]
 }
