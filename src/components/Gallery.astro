@@ -1,5 +1,5 @@
 ---
-import EmblaCarousel from './EmblaCarousel'
+import Carousel from './Carousel'
 import {getImage} from 'astro:assets'
 import type {Image} from '../types/Image'
 import type {ImageData } from '../types/ImageData'
@@ -14,11 +14,30 @@ const imageMap = import.meta.glob<{ default: ImageMetadata }>('/src/assets/**/*.
 
 const images: Image[] = []
 for (const { url, alt } of imageData) {
-    const image = await getImage({src: imageMap[url](), format: 'webp', height: 400, densities: [1, 1.5]})
-    const thumbnail = await getImage({src: imageMap[url](), format: 'webp', height: 50, densities: [1, 1.5]})
+    const image = await getImage({
+        src: imageMap[url](),
+        format: 'webp',
+        height: 400,
+        densities: [1, 1.5]
+    })
+
+    const fullScreenImages = await getImage({
+        src: imageMap[url](),
+        format: 'webp',
+        height: 1300,
+        densities: [1, 1.5]
+    })
+
+    const thumbnail = await getImage({
+        src: imageMap[url](),
+        format: 'webp',
+        height: 50,
+        densities: [1, 1.5]
+    })
 
     images.push({
         url: image.srcSet.attribute,
+        fullScreenUrl: fullScreenImages.srcSet.attribute,
         thumbnailUrl: thumbnail.srcSet.attribute,
         alt
     })
@@ -26,5 +45,5 @@ for (const { url, alt } of imageData) {
 ---
 
 <section>
-    <EmblaCarousel images={images} client:idle />
+    <Carousel images={images} client:idle />
 </section>
