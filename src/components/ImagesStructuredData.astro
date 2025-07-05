@@ -1,0 +1,69 @@
+---
+import type {CollectionEntry} from 'astro:content'
+import {getImage} from 'astro:assets'
+import type {ArrayElement} from '../types/ArrayElement'
+
+type ImageDataItems = CollectionEntry<'sculptures'>['data']['images']
+
+interface Person {
+  '@type': 'Person',
+  name: string,
+}
+
+interface ImageObject {
+  '@context': 'https://schema.org/'
+  '@type': 'ImageObject'
+  contentUrl: string
+  license: string
+  acquireLicensePage: string
+  creditText: string
+  creator: Person
+  copyRightNotice: string
+}
+
+interface Props {
+  images: ImageDataItems
+}
+
+const imageMap = import.meta.glob<{ default: ImageMetadata }>('/src/assets/**/*.webp')
+
+const {images} = Astro.props
+
+async function imageDataItemsToImageObjects(imageDataItems: ImageDataItems): Promise<ImageObject[]> {
+  const imageObjects: ImageObject[] = []
+
+  for (const imageDataItem of imageDataItems) {
+    imageObjects.push(await imageDataItemToImageObject(imageDataItem))
+  }
+
+  return imageObjects
+}
+
+async function imageDataItemToImageObject(imageDataItem: ArrayElement<ImageDataItems>): Promise<ImageObject> {
+
+  const image = await getImage({
+    src: imageMap[imageDataItem.url](),
+    format: 'webp',
+    height: 1300,
+    densities: [1.5]
+  })
+
+  return {
+    '@context': 'https://schema.org/',
+    '@type': 'ImageObject',
+    contentUrl: new URL(image.src, Astro.site).toString(),
+    license: new URL('/contact', Astro.site).toString(),
+    acquireLicensePage: new URL('/contact', Astro.site).toString(),
+    creditText: 'Harry van de Ven',
+    creator: {
+      '@type': 'Person',
+      name: 'Harry van de Ven'
+    },
+    copyRightNotice: 'Harry van de Ven'
+  }
+}
+
+const imageObjectsJsonArrayString = JSON.stringify(await imageDataItemsToImageObjects(images))
+---
+
+<script is:inline type="application/ld+json" set:html={imageObjectsJsonArrayString} />
