@@ -95,6 +95,7 @@ const previewImageResult = await getImage({src: images[previewImageUrl](), forma
     <meta property="twitter:image"
           content={new URL(previewImageResult.src, Astro.site)}>
     <meta name="generator" content={Astro.generator}/>
+    <slot name="head" />
 </head>
 <body class="box-border bg-secondary text-primary flex flex-col min-h-dvh min-w-83">
 <section class="bg-primary z-20 w-full flex justify-between lg:hidden">

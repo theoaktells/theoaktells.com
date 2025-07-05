@@ -5,6 +5,7 @@ import Title from '../components/Title.astro'
 import Text from '../components/Text.astro'
 import Breadcrumbs from '../components/Breadcrumbs.astro'
 import Gallery from '../components/Gallery.astro'
+import ImagesStructuredData from '../components/ImagesStructuredData.astro'
 
 interface Props {
     sculpture: CollectionEntry<'sculptures'>,
@@ -24,6 +25,7 @@ const {sculpture} = Astro.props
 
 <Layout title={sculpture.data.title} description={sculpture.data.description}
         previewImageUrl={sculpture.data.previewImageUrl}>
+    <ImagesStructuredData images={sculpture.data.images} slot="head" />
     <Breadcrumbs title={sculpture.data.title} url={sculpture.id}/>
     <Title title={sculpture.data.title}/>
     <Gallery imageData={sculpture.data.images}/>
