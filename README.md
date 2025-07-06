@@ -1,3 +1,3 @@
 # theoaktells.com
 
-Website for sculptures
+Get to know the sculptures of Harry van de Ven
