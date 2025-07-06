@@ -96,7 +96,7 @@ const Carousel: React.FC<PropType> = props => {
   }, [emblaMainApi, updateSlidesInView])
 
   return (
-    <div className={clsx('w-full flex flex-col', isFullScreen && 'fixed top-0 left-0 p-5 h-full z-100')}>
+    <div className={clsx('w-full flex flex-col', isFullScreen && 'fixed top-0 left-0 p-5 h-full z-100 min-h-60')}>
       <div className={clsx(isFullScreen && 'bg-primary/90 h-full w-full absolute top-0 left-0 backdrop-blur-md')}
            onClick={handleToggleIsFullScreen}/>
       <div className={clsx('w-full flex overflow-hidden rounded-sm', isFullScreen ? 'h-full' : 'h-[400px]')}

@@ -29,7 +29,7 @@ export const Slide: React.FC<PropType> = props => {
       'relative',
       'items-center',
       'shrink-0',
-      isFullScreen ? 'max-h-[1300px]' : 'h-[400px]')}>
+      isFullScreen ? 'max-h-[1300px] h-full' : 'h-[400px]')}>
       {children}
       <img
         className="rounded-sm max-h-max"
