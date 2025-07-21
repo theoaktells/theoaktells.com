@@ -1,11 +1,13 @@
 ---
 import MobileMenuItem from '../components/MobileMenuItem.astro'
 import MenuItem from '../components/MenuItem.astro'
+import LanguageToggle from '../components/LanguageToggle.astro'
 import {getCollection} from 'astro:content'
 import type {CollectionEntry} from 'astro:content'
 import type {MenuItemProps} from '../types/MenuItemProps'
 import {getImage} from 'astro:assets'
 import type {ImageMetadata} from 'astro'
+import {getRelativeLocaleUrl} from 'astro:i18n'
 
 import '../styles/global.css'
 
@@ -15,7 +17,11 @@ interface Props {
   description: string
 }
 
-function compareMenuItemData(a: CollectionEntry<'sculptures'>, b: CollectionEntry<'sculptures'>): number {
+function localeUrlOrDefault(url: string): string {
+  return getRelativeLocaleUrl(Astro.currentLocale ?? 'nl', url)
+}
+
+function compareMenuItemData(a: CollectionEntry<'sculpturesNl' | 'sculpturesEn'>, b: CollectionEntry<'sculpturesNl' | 'sculpturesEn'>): number {
   if (a.data.impressivenessScore > b.data.impressivenessScore) {
     return -1
   }
@@ -32,41 +38,41 @@ function isPathActive(expectedPath: string, currentPath: string): boolean {
   return regex.test(currentPath)
 }
 
-function createMenuItems(sculptures: CollectionEntry<'sculptures'>[], currentPath: string): MenuItemProps[] {
+function createMenuItems(sculptures: CollectionEntry<'sculpturesNl' | 'sculpturesEn'>[], currentPath: string): MenuItemProps[] {
   const menuItems: MenuItemProps[] = []
 
   menuItems.push({
     name: 'Home',
-    url: '/',
-    isActive: isPathActive('/', currentPath),
+    url: localeUrlOrDefault('/'),
+    isActive: isPathActive(localeUrlOrDefault('/'), currentPath),
   })
 
   const sculptureMenuItems: MenuItemProps[] = sculptures
     .sort(compareMenuItemData)
     .map(item => ({
       name: item.data.title,
-      url: `/${item.id}/`,
-      isActive: isPathActive(`/${item.id}`, currentPath),
+      url: localeUrlOrDefault(`/${item.id}/`),
+      isActive: isPathActive(localeUrlOrDefault(`/${item.id}`), currentPath)
     }))
 
   menuItems.push(...sculptureMenuItems)
 
   menuItems.push({
-    name: 'Over',
-    url: '/about/',
-    isActive: isPathActive('/about', currentPath),
+    name: Astro.currentLocale == 'nl' ? 'Over' : 'About',
+    url: localeUrlOrDefault('/about/'),
+    isActive: isPathActive(localeUrlOrDefault('/about'), currentPath)
   })
 
   menuItems.push({
     name: 'Contact',
-    url: '/contact/',
-    isActive: isPathActive('/contact', currentPath),
+    url: localeUrlOrDefault('/contact/'),
+    isActive: isPathActive(localeUrlOrDefault('/contact'), currentPath)
   })
 
   return menuItems
 }
 
-const sculptureCollection = await getCollection('sculptures')
+const sculptureCollection = await getCollection(Astro.currentLocale === 'en' ? 'sculpturesEn' : 'sculpturesNl')
 
 const {title, description, previewImageUrl} = Astro.props
 
@@ -78,7 +84,7 @@ const previewImageResult = await getImage({src: images[previewImageUrl](), forma
 ---
 
 <!doctype html>
-<html lang="nl">
+<html lang={Astro.currentLocale}>
 <head>
     <title>{title} - the oak tells</title>
     <meta charset="utf-8"/>
@@ -95,7 +101,7 @@ const previewImageResult = await getImage({src: images[previewImageUrl](), forma
     <meta property="twitter:image"
           content={new URL(previewImageResult.src, Astro.site)}>
     <meta name="generator" content={Astro.generator}/>
-    <slot name="head" />
+    <slot name="head"/>
 </head>
 <body class="box-border bg-secondary text-primary flex flex-col min-h-dvh min-w-83">
 <section class="bg-primary z-20 w-full flex justify-between lg:hidden">
@@ -141,6 +147,7 @@ const previewImageResult = await getImage({src: images[previewImageUrl](), forma
         menuItems.map(({name, url, isActive}) =>
                 <MobileMenuItem name={name} url={url} isActive={isActive}/>)
       }
+      <LanguageToggle/>
     </ul>
 </nav>
 <section class="flex flex-row-reverse w-full lg:min-h-dvh">
@@ -171,6 +178,7 @@ const previewImageResult = await getImage({src: images[previewImageUrl](), forma
                             <MenuItem name={name} url={url} isActive={isActive}/>)
                   }
                 </ul>
+                <LanguageToggle/>
             </nav>
         </section>
     </article>

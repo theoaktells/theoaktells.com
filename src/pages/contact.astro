@@ -1,36 +1,21 @@
 ---
-import Layout from '../layouts/Layout.astro'
-import Title from '../components/Title.astro'
-import Breadcrumbs from '../components/Breadcrumbs.astro'
 import {getCollection} from 'astro:content'
+import ContactLayout from '../layouts/ContactLayout.astro'
 
-const comments = await getCollection('comments')
+const comments = await getCollection('commentsNl')
 ---
 
-<Layout title="Contact" description="In overleg met U kan ik voor u een uniek beeld maken."
-        previewImageUrl="/src/assets/hout.webp">
-    <Breadcrumbs title="Contact" url="/contact"/>
-    <Title title="Contact"/>
-    <section>
-        <p class="pb-1 italic">Spreken deze beelden U aan?</p>
-        <p class="pb-1 italic">Dan kunt U zich tot mij richten via <a class="hover:underline"
-                                                                      href="mailto:theoaktells@gmail.com">
-            theoaktells@gmail.com</a>. In overleg met U kan ik voor u een uniek beeld maken:</p>
-        <ul class="list-disc italic ml-6">
-            <li>Een beeld dat past in Uw tuin</li>
-            <li>Uw herinnering uitgedrukt in een beeld</li>
-            <li>Een beeld waarin u evt. de as van uw dierbare kunt bewaren</li>
-        </ul>
-    </section>
-    <section>
-        <h3 class="my-5 font-bold font-serif text-lg">Reacties</h3>
-      {
-        comments.map(comment => (
-                <>
-                    <p class="mt-4 mb-1 font-bold">{comment.data.from}</p>
-                    <p set:html={comment.data.text}/>
-                </>
-        ))
-      }
-    </section>
-</Layout>
+<ContactLayout title="Contact"
+               description="In overleg met U kan ik voor u een uniek beeld maken."
+               comments={comments}
+               commentsHeader="Comments">
+    <p class="pb-1 italic">Spreken deze beelden U aan?</p>
+    <p class="pb-1 italic">Dan kunt U zich tot mij richten via <a class="hover:underline"
+                                                                  href="mailto:theoaktells@gmail.com">
+        theoaktells@gmail.com</a>. In overleg met U kan ik voor u een uniek beeld maken:</p>
+    <ul class="list-disc italic ml-6">
+        <li>Een beeld dat past in Uw tuin</li>
+        <li>Uw herinnering uitgedrukt in een beeld</li>
+        <li>Een beeld waarin u evt. de as van uw dierbare kunt bewaren</li>
+    </ul>
+</ContactLayout>

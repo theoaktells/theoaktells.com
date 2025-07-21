@@ -1,0 +1,29 @@
+{
+  "title": "Mask",
+  "impressivenessScore": 400,
+  "description": "The creation of wooden sculptures began with making props for the band Chelson Wells.",
+  "previewImageUrl": "/src/assets/sculptures/mask/1.webp",
+  "context": "The creation of wooden sculptures began with making props for the band Chelson Wells. Chelson Wells is the name of a new imaginary world in our planetary system. The gate provides access to the authentic world and is decorated by the three explorers: the Shaman (JVEM), the leader (SAVME), and the Seer (AVJ).",
+  "images": [
+    {
+      "url": "/src/assets/sculptures/mask/1.webp",
+      "alt": "Three different wooden masks."
+    },
+    {
+      "url": "/src/assets/sculptures/mask/2.webp",
+      "alt": "Wooden mask with a lamp inside."
+    },
+    {
+      "url": "/src/assets/sculptures/mask/3.webp",
+      "alt": "Wooden mask with a lamp inside."
+    },
+    {
+      "url": "/src/assets/sculptures/mask/4.webp",
+      "alt": "Wooden mask with a scorpion on it."
+    },
+    {
+      "url": "/src/assets/sculptures/mask/5.webp",
+      "alt": "Stage piece with the wooden masks on it, between which a banner is stretched with 'Chelson Wells' written on it."
+    }
+  ]
+}

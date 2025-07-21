@@ -1,0 +1,29 @@
+{
+  "title": "Two to tango",
+  "impressivenessScore": 650,
+  "description": "It takes two to Tango is a combination of an oak sculpture 1.80 meters high and a serpentine sculpture of approximately 250x10x5 cm.",
+  "previewImageUrl": "/src/assets/sculptures/two-to-tango/1.webp",
+  "context": "It takes two to Tango is a combination of an oak sculpture 1.80 meters high and a serpentine sculpture of approximately 250x10x5 cm. The sculpture stands on an oval of dark natural stone<br><br>The sculpture shows a dancing couple performing the tango. The back is sleek and stylistic, the front has a realistic, playful perspective.",
+  "images": [
+    {
+      "url": "/src/assets/sculptures/two-to-tango/1.webp",
+      "alt": "A stone statue of a dancing couple in a wooden pillar."
+    },
+    {
+      "url": "/src/assets/sculptures/two-to-tango/2.webp",
+      "alt": "A stone statue of a dancing couple."
+    },
+    {
+      "url": "/src/assets/sculptures/two-to-tango/3.webp",
+      "alt": "A stone statue of a dancing couple."
+    },
+    {
+      "url": "/src/assets/sculptures/two-to-tango/4.webp",
+      "alt": "A stone statue of a dancing couple."
+    },
+    {
+      "url": "/src/assets/sculptures/two-to-tango/5.webp",
+      "alt": "A stone statue of a dancing couple."
+    }
+  ]
+}

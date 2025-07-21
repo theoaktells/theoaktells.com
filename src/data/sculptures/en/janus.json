@@ -1,0 +1,33 @@
+{
+  "title": "Janus",
+  "impressivenessScore": 850,
+  "description": "Janus is a sculpture of 40x40x7 cm made from Serpentine.",
+  "previewImageUrl": "/src/assets/sculptures/janus/1.webp",
+  "context": "Janus is a sculpture of 40x40x7 cm made from Serpentine. Janus refers to the name of the Roman god, the god of passages and beginnings. Janus, often depicted with two faces, is the god after whom January is named.<br><br>This sculpture also has two faces. On one side, an organic structure with curves. On the other side, an eye on the diagonal and a prehistoric-looking fish with a tail. Both sides are connected by the contours of the sculpture's outline and the passage in which two figures are posed. A female figure on the side of the curves, a male figure on the side of the surreal reality. Both try, in their own meditative way, to find balance in their subjective reality.",
+  "images": [
+    {
+      "url": "/src/assets/sculptures/janus/1.webp",
+      "alt": "Stone sculpture of a woman sitting cross-legged surrounded by an organic structure."
+    },
+    {
+      "url": "/src/assets/sculptures/janus/2.webp",
+      "alt": "Stone sculpture of a man sitting cross-legged as the pupil of an eye flanked by a fish."
+    },
+    {
+      "url": "/src/assets/sculptures/janus/3.webp",
+      "alt": "Stone sculpture of a man sitting cross-legged as the pupil of an eye."
+    },
+    {
+      "url": "/src/assets/sculptures/janus/4.webp",
+      "alt": "Stone sculpture of a woman sitting cross-legged surrounded by an organic structure."
+    },
+    {
+      "url": "/src/assets/sculptures/janus/5.webp",
+      "alt": "Stone sculpture of an organic form."
+    },
+    {
+      "url": "/src/assets/sculptures/janus/6.webp",
+      "alt": "Stone sculpture of a woman sitting cross-legged surrounded by an organic structure on top of a wooden pillar."
+    }
+  ]
+}

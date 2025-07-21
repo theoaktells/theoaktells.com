@@ -1,0 +1,33 @@
+{
+  "title": "Balance",
+  "impressivenessScore": 1000,
+  "description": "This sculpture, made of oak wood, measures 50x70x230 cm.",
+  "previewImageUrl": "/src/assets/sculptures/balance/1.webp",
+  "context": "This sculpture, made of oak wood, measures 50x70x230 cm. From the bottom of the sculpture, irregularly shaped branches and an open structure form a sketch of a human figure: open in character, with linear muscles and recognizable through a realistically shaped face. The \"human\" holds an ellipsoid in balance with two muscular arms and dissected hands. The ellipsoid has a dense structure at the bottom, which transitions in the middle into petal-like forms. Two petals are bent open toward the front. The upper half of the ellipsoid has an open structure and shows a regular sequence of flame shapes carved in wood. In the center of the flower-like ellipsoid is a radiant core, emphasized by light. At the bottom of the ellipsoid is a stem, which opens from top to bottom and is filled with small stones: a stem that visually connects to the open structure at the base of the sculpture. The third part of the sculpture is the butterfly, which stands atop the \"flower\" and feeds with its tongue on nectar from the flower. The butterfly has an open structure, and pear wood and birch wood are used in the lower wings to symbolize the colorful beauty of butterflies. Balance is a sculpture that can move: if the \"stem\" is thrown out of balance, the flower and butterfly will return to equilibrium after 30 seconds. The title of the sculpture is inlaid in the irregularly polygonal base: Balance HV 2011.",
+  "images": [
+    {
+      "url": "/src/assets/sculptures/balance/1.webp",
+      "alt": "Wooden sculpture of a man holding a flower with a butterfly on it."
+    },
+    {
+      "url": "/src/assets/sculptures/balance/2.webp",
+      "alt": "Wooden sculpture of a man holding a flower with a butterfly on it."
+    },
+    {
+      "url": "/src/assets/sculptures/balance/3.webp",
+      "alt": "Wooden sculpture of a hemisphere with a pattern."
+    },
+    {
+      "url": "/src/assets/sculptures/balance/4.webp",
+      "alt": "Wooden sculpture of a man holding a flower with a butterfly on it."
+    },
+    {
+      "url": "/src/assets/sculptures/balance/5.webp",
+      "alt": "Wooden sculpture of a butterfly on a flower."
+    },
+    {
+      "url": "/src/assets/sculptures/balance/6.webp",
+      "alt": "Wooden sculpture of a man holding a flower."
+    }
+  ]
+}

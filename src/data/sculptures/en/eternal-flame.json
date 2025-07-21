@@ -1,0 +1,29 @@
+{
+  "title": "Eternal flame",
+  "impressivenessScore": 600,
+  "description": "Not only does the depiction refer to fire, but the serpentine stone itself also has a flaming structure.",
+  "previewImageUrl": "/src/assets/sculptures/eternal-flame/1.webp",
+  "context": "This is a sculpture with dimensions of 20x20x48 cm.<br><br>Not only does the depiction refer to fire, but the serpentine stone itself also has a flaming structure. The colors range from dark green to light green with whitish streaks. The tips of the \"flames\" can be connected by an imaginary line. The two imaginary lines come together at the front \"flame\".<br><br>On the second \"flame\" stands a bride and groom looking into each other's eyes, promising eternal loyalty.",
+  "images": [
+    {
+      "url": "/src/assets/sculptures/eternal-flame/1.webp",
+      "alt": "Stone sculpture of a man and a woman surrounded by flames."
+    },
+    {
+      "url": "/src/assets/sculptures/eternal-flame/2.webp",
+      "alt": "Stone sculpture of a man and a woman."
+    },
+    {
+      "url": "/src/assets/sculptures/eternal-flame/3.webp",
+      "alt": "Stone sculpture of a man and a woman surrounded by flames."
+    },
+    {
+      "url": "/src/assets/sculptures/eternal-flame/4.webp",
+      "alt": "Stone sculpture of a man and a woman surrounded by flames."
+    },
+    {
+      "url": "/src/assets/sculptures/eternal-flame/5.webp",
+      "alt": "Stone sculpture of a flame."
+    }
+  ]
+}

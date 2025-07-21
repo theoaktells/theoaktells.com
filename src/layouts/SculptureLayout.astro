@@ -1,0 +1,29 @@
+---
+import {type CollectionEntry} from 'astro:content'
+import Layout from '../layouts/Layout.astro'
+import Title from '../components/Title.astro'
+import Text from '../components/Text.astro'
+import Breadcrumbs from '../components/Breadcrumbs.astro'
+import Gallery from '../components/Gallery.astro'
+import ImagesStructuredData from '../components/ImagesStructuredData.astro'
+import {getRelativeLocaleUrl} from 'astro:i18n'
+
+interface Props {
+  sculpture: CollectionEntry<'sculpturesNl' | 'sculpturesEn'>,
+}
+
+const {sculpture} = Astro.props
+
+const url = getRelativeLocaleUrl(Astro.currentLocale ?? 'nl', sculpture.id)
+---
+
+<Layout title={sculpture.data.title} description={sculpture.data.description}
+        previewImageUrl={sculpture.data.previewImageUrl}>
+    <ImagesStructuredData images={sculpture.data.images} slot="head" />
+    <Breadcrumbs title={sculpture.data.title} url={url}/>
+    <Title title={sculpture.data.title}/>
+    <Gallery imageData={sculpture.data.images}/>
+    <Text>
+        <Fragment set:html={sculpture.data.context}/>
+    </Text>
+</Layout>

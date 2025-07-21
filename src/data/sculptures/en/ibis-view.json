@@ -1,0 +1,29 @@
+{
+  "title": "Ibis view",
+  "impressivenessScore": 950,
+  "description": "This sculpture measures 70 x 70 x 180 cm and is made of oak wood.",
+  "previewImageUrl": "/src/assets/sculptures/ibis-view/1.webp",
+  "context": "This sculpture measures 70 x 70 x 180 cm and is made of oak wood. The right-angled triangle forms the base for a naturally shaped oak branch that carries twenty right-angled triangles. The 19 added masks symbolize the diversity of people in the world. The 23 ellipsoids frame the whole and, with the straight connections, reinforce the right-angled triangles. Three of the ellipsoids have two protrusions. One of the ellipsoids contains an iris, making the whole appear like an eye. In front of the naturally shaped oak branch, worked with characteristic straight lines and planes, hangs a crane-like figure with the beak of an Ibis. The Ibis looks upward and seems to want to touch the lower ellipsoid. The Ibis is hollow and has six openings of 2 x 40 cm. On the surface of the largest right-angled triangle sits a small Ibis. This Ibis is also hollow and has three stripes of 1 x 25 cm. On the side of one of the largest right-angled triangles, the name \"ibis view HV 08\" is inlaid with dark-colored wood.",
+  "images": [
+    {
+      "url": "/src/assets/sculptures/ibis-view/1.webp",
+      "alt": "Wooden sculpture of a world of faces being watched by an ibis."
+    },
+    {
+      "url": "/src/assets/sculptures/ibis-view/2.webp",
+      "alt": "Wooden sculpture of two ibises looking upwards."
+    },
+    {
+      "url": "/src/assets/sculptures/ibis-view/3.webp",
+      "alt": "Wooden sculpture of a world of faces being watched by an ibis."
+    },
+    {
+      "url": "/src/assets/sculptures/ibis-view/4.webp",
+      "alt": "Wooden sculpture of a world of faces."
+    },
+    {
+      "url": "/src/assets/sculptures/ibis-view/5.webp",
+      "alt": "Wooden sculpture of a world of faces being watched by an ibis."
+    }
+  ]
+}

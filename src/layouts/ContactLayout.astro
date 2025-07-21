@@ -1,0 +1,44 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Title from '../components/Title.astro'
+import Breadcrumbs from '../components/Breadcrumbs.astro'
+import type {CollectionEntry} from 'astro:content'
+import {getRelativeLocaleUrl} from 'astro:i18n'
+
+interface Props {
+  title: string
+  description: string
+  commentsHeader: string
+  comments: CollectionEntry<'commentsNl' | 'commentsEn'>[]
+}
+
+const {
+  title,
+  description,
+  comments,
+  commentsHeader
+} = Astro.props
+
+const url = getRelativeLocaleUrl(Astro.currentLocale ?? 'nl', 'contact')
+
+---
+
+<Layout title={title} description={description}
+        previewImageUrl="/src/assets/hout.webp">
+    <Breadcrumbs title={title} url={url}/>
+    <Title title="Contact"/>
+    <section>
+        <slot />
+    </section>
+    <section>
+        <h3 class="my-5 font-bold font-serif text-lg">{commentsHeader}</h3>
+      {
+        comments.map(comment => (
+                <>
+                    <p class="mt-4 mb-1 font-bold">{comment.data.from}</p>
+                    <p set:html={comment.data.text}/>
+                </>
+        ))
+      }
+    </section>
+</Layout>

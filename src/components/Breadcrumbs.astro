@@ -1,22 +1,26 @@
 ---
+import {getRelativeLocaleUrl} from 'astro:i18n'
+
 interface Props {
   title: string
   url: string
 }
 
 const {title, url} = Astro.props
+
+const homeUrl = getRelativeLocaleUrl(Astro.currentLocale ?? 'nl', '/')
 ---
 
 <nav>
     <ol class="flex space-x-2 text-xs bg-secondary-dark w-fit rounded-sm py-2 px-3">
         <li>
-            <a href="/" class="hover:underline">Home</a>
+            <a href={homeUrl} class="hover:underline">Home</a>
         </li>
         <li>
             <span aria-hidden="true">&gt;</span>
         </li>
         <li>
-            <a href={`/${url}`} class="hover:underline font-bold" aria-current="page">{title}</a>
+            <a href={url} class="hover:underline font-bold" aria-current="page">{title}</a>
         </li>
     </ol>
 </nav>

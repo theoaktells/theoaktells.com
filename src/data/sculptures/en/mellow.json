@@ -1,0 +1,33 @@
+{
+  "title": "Mellow",
+  "impressivenessScore": 750,
+  "description": "",
+  "previewImageUrl": "/src/assets/sculptures/mellow/6.webp",
+  "context": "",
+  "images": [
+    {
+      "url": "/src/assets/sculptures/mellow/1.webp",
+      "alt": "Part of a tree trunk."
+    },
+    {
+      "url": "/src/assets/sculptures/mellow/2.webp",
+      "alt": "Harry van de Ven working a tree trunk with a chainsaw."
+    },
+    {
+      "url": "/src/assets/sculptures/mellow/3.webp",
+      "alt": "Tree trunk with pieces cut out."
+    },
+    {
+      "url": "/src/assets/sculptures/mellow/4.webp",
+      "alt": "Beginning wooden statue made from a tree trunk."
+    },
+    {
+      "url": "/src/assets/sculptures/mellow/5.webp",
+      "alt": "Beginning wooden statue made from a tree trunk."
+    },
+    {
+      "url": "/src/assets/sculptures/mellow/6.webp",
+      "alt": "Harry van de Ven working on a beginning wooden statue with a jigsaw."
+    }
+  ]
+}
