@@ -1,0 +1,68 @@
+---
+import {Image} from 'astro:assets'
+
+import Text from '../components/Text.astro'
+import Layout from '../layouts/Layout.astro'
+import Title from '../components/Title.astro'
+import Breadcrumbs from '../components/Breadcrumbs.astro'
+
+import HarryImage from '../assets/harry.webp'
+import HarryWoodImage from '../assets/harry-hout.webp'
+import HarrySerpentineImage from '../assets/harry-serpentijn.webp'
+import {getRelativeLocaleUrl} from 'astro:i18n'
+
+interface Props {
+  title: string
+  description: string
+  harryImageAlt: string
+  harryWoodImageAlt: string
+  harrySerpentineImageAlt: string
+}
+
+const {
+  title,
+  description,
+  harryImageAlt,
+  harryWoodImageAlt,
+  harrySerpentineImageAlt
+} = Astro.props
+
+const url = getRelativeLocaleUrl(Astro.currentLocale ?? 'nl', 'about')
+
+---
+
+<Layout title={title}
+        description={description}
+        previewImageUrl="/src/assets/harry.webp">
+    <Breadcrumbs title={title} url={url}/>
+    <Title title={title} />
+    <Text>
+      <slot />
+    </Text>
+    <section class="flex flex-col items-center sm:flex-row justify-between space-y-4 sm:space-y-0">
+        <Image class="rounded-sm"
+               width="180"
+               height="270"
+               alt={harryImageAlt}
+               fit="cover"
+               layout="fixed"
+               src={HarryImage}
+               loading="eager"/>
+        <Image class="rounded-sm"
+               width="180"
+               height="270"
+               fit="cover"
+               alt={harryWoodImageAlt}
+               layout="fixed"
+               src={HarryWoodImage}
+               loading="eager"/>
+        <Image class="rounded-sm"
+               width="180"
+               height="270"
+               fit="cover"
+               alt={harrySerpentineImageAlt}
+               layout="fixed"
+               src={HarrySerpentineImage}
+               loading="eager"/>
+    </section>
+</Layout>

@@ -1,40 +1,12 @@
 ---
-import {Image} from 'astro:assets'
-
-import Layout from '../layouts/Layout.astro'
-import WoodImage from '../assets/hout.webp'
-import SerpentineImage from '../assets/serpentijn.webp'
-import Title from '../components/Title.astro'
+import HomeLayout from '../layouts/HomeLayout.astro'
 ---
 
-<Layout title="Home" description="Maak kennis met de beelden van Harry van de Ven."
-        previewImageUrl="/src/assets/hout.webp">
-    <Title class:list={['mt-11.5']} title="Welkom"/>
-    <h2 class="text-lg">Maak kennis met de beelden van <a class="hover:underline" href="/about">Harry van de Ven</a>.
-    </h2>
-    <section class="flex flex-col sm:flex-row space-y-5 sm:space-y-0 sm:space-x-5 justify-center-safe">
-        <a href="/balance" class="flex flex-col items-center p-3 bg-secondary-dark rounded-sm hover:underline">
-            <Image class="rounded-sm"
-                   width="256"
-                   height="332"
-                   fit="cover"
-                   alt="Een houten beeld."
-                   priority={true}
-                   layout="fixed"
-                   src={WoodImage}
-                   loading="eager"/>
-            <h2 class="text-center pt-2">Beelden in hout (Eik)</h2>
-        </a>
-        <a href="/angel" class="flex flex-col items-center p-3 bg-secondary-dark rounded-sm hover:underline">
-            <Image class="rounded-sm"
-                   width="256"
-                   height="332"
-                   fit="cover"
-                   alt="Een serpentijnen beeld."
-                   layout="fixed"
-                   src={SerpentineImage}
-                   loading="eager"/>
-            <h2 class="text-center pt-2">Beelden in steen (Serpentijn)</h2>
-        </a>
-    </section>
-</Layout>
+<HomeLayout title="Home"
+            description="Maak kennis met de beelden van Harry van de Ven."
+            pageTitle="Welkom"
+            getToKnowTheSculpturesOfText="Maak kennis met de beelden van"
+            woodenSculptureText="Beelden in hout (Eik)"
+            stoneSculptureText="Beelden in steen (Serpentijn)"
+            woodenSculptureImageAltText="Een houten beeld."
+            serpentineSculptureImageAltText="Een serpentijnen beeld."/>

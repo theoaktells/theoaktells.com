@@ -1,0 +1,29 @@
+{
+  "title": "Mirror",
+  "impressivenessScore": 700,
+  "description": "This sculpture group consists of two sculptures. They are not made of oak but of serpentine, a type of stone with a similar hardness.",
+  "previewImageUrl": "/src/assets/sculptures/mirror/1.webp",
+  "context": "This sculpture group consists of two sculptures. They are not made of oak but of serpentine, a type of stone with a similar hardness. Both are about 20x20x60 cm tall.<br><br>The right sculpture shows a stacking of rock blocks at the front. In the middle, there are two rectangular openings. At these rectangular openings, a boy is standing holding his left hand on the edge of the rectangular hole and reaching with his right hand towards the other sculpture. He stands on the very tip of the rock and seems about to be overwhelmed by the overhanging rock. The back of the sculpture is hollow. The rectangular line pattern resembles an eggshell.<br><br>The left sculpture also shows a stacking of rock blocks at the front. This sculpture is more closed and merges with the rock, forming a female figure. She is missing her feet. Her back and hair form a unity with the rock. She extends her left hand resignedly toward the boy. Here too, the back of the sculpture is hollow and resembles an eggshell.",
+  "images": [
+    {
+      "url": "/src/assets/sculptures/mirror/1.webp",
+      "alt": "Two angular stone statues facing each other with two people on them."
+    },
+    {
+      "url": "/src/assets/sculptures/mirror/2.webp",
+      "alt": "Two angular stone statues facing each other with two people on them."
+    },
+    {
+      "url": "/src/assets/sculptures/mirror/3.webp",
+      "alt": "Angular stone statue with a woman reaching out her hand."
+    },
+    {
+      "url": "/src/assets/sculptures/mirror/4.webp",
+      "alt": "Two angular stone statues facing each other with two people on them."
+    },
+    {
+      "url": "/src/assets/sculptures/mirror/5.webp",
+      "alt": "Angular stone statue."
+    }
+  ]
+}

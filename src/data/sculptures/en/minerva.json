@@ -1,0 +1,21 @@
+{
+  "title": "Minerva",
+  "impressivenessScore": 550,
+  "description": "Minerva is a combination of a 2 meter high oak sculpture and a serpentine sculpture of approximately 25x25x6 cm.",
+  "previewImageUrl": "/src/assets/sculptures/minerva/1.webp",
+  "context": "Minerva is a combination of a 2 meter high oak sculpture and a serpentine sculpture of approximately 25x25x6 cm. The sculpture stands within the oak branch. Minerva is a stylized black barn owl, sitting on a branch.<br><br>Minerva refers to the name of a Roman deity, a personification of the divine power of intellect, ingenuity, the human spirit, and wisdom. One of her attributes was an owl. Minerva was a peaceful god. Later, the Romans also saw her as the goddess of art and peace, but also of war.",
+  "images": [
+    {
+      "url": "/src/assets/sculptures/minerva/1.webp",
+      "alt": "Stone statue of an owl on a wooden branch."
+    },
+    {
+      "url": "/src/assets/sculptures/minerva/2.webp",
+      "alt": "Stone statue of an owl sitting on a branch."
+    },
+    {
+      "url": "/src/assets/sculptures/minerva/3.webp",
+      "alt": "Stone statue of an owl sitting on a branch."
+    }
+  ]
+}

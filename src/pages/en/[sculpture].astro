@@ -1,0 +1,21 @@
+---
+import {type CollectionEntry, getCollection} from 'astro:content'
+import SculptureLayout from '../../layouts/SculptureLayout.astro'
+
+interface Props {
+    sculpture: CollectionEntry<'sculpturesEn'>
+}
+
+export async function getStaticPaths() {
+    const sculptures = await getCollection('sculpturesEn')
+
+    return sculptures.map(sculpture => ({
+        params: {sculpture: sculpture.id},
+        props: {sculpture}
+    }))
+}
+
+const {sculpture} = Astro.props
+---
+
+<SculptureLayout sculpture={sculpture}/>

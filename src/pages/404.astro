@@ -1,22 +1,9 @@
 ---
-import Layout from '../layouts/Layout.astro'
-import Title from '../components/Title.astro'
-import Text from '../components/Text.astro'
+import NotFoundLayout from '../layouts/NotFoundLayout.astro'
 ---
 
-<Layout title="Niet gevonden"
-        description="De pagina die u zoekt is niet gevonden"
-        previewImageUrl="/src/assets/hout.webp">
-    <Title class="mt-11.5" title="Niet gevonden"/>
-    <Text>Oeps! We kunnen de pagina die je zoekt niet vinden.</Text>
-    <a href="/" class:list={[
-      'inline-block',
-      'py-2.5',
-      'px-6',
-      'cursor-pointer',
-      'bg-primary',
-      'hover:bg-primary-lighter',
-      'text-secondary',
-      'font-bold',
-      'rounded-sm']}>Ga naar home</a>
-</Layout>
+<NotFoundLayout title="Niet gevonden"
+                description="De pagina die u zoekt is niet gevonden."
+                homeButtonText="Ga naar home">
+    Oeps! We kunnen de pagina die je zoekt niet vinden.
+</NotFoundLayout>

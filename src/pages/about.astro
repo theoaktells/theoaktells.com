@@ -1,58 +1,21 @@
 ---
-import {Image} from 'astro:assets'
-
-import Text from '../components/Text.astro'
-import Layout from '../layouts/Layout.astro'
-import Title from "../components/Title.astro";
-import Breadcrumbs from '../components/Breadcrumbs.astro'
-
-import HarryImage from '../assets/harry.webp'
-import HarryWoodImage from '../assets/harry-hout.webp'
-import HarrySerpentineImage from '../assets/harry-serpentijn.webp'
+import AboutLayout from '../layouts/AboutLayout.astro'
 ---
 
-<Layout title="Over"
-        description="Harry van de Ven, woonachtig in Hengelo(OV), is pas laat begonnen met het maken van deze beelden."
-        previewImageUrl="/src/assets/harry.webp">
-    <Breadcrumbs title="Over" url="/about"/>
-    <Title title="Over"/>
-    <Text>
-        Harry van de Ven, woonachtig in Hengelo(OV), is pas laat begonnen met het maken van deze beelden. Al vroeg ging
-        zijn
-        voorkeur uit naar het werken met hout. Zijn eerste figuurzaag kreeg hij toen hij 8 jaar oud was en al snel werd
-        triplex en hout gebruikt voor de modelbouw. Daar gebruikte hij hout voor concrete toepassingen. In musea kon hij
-        genieten van kunst en zijn liefde voor geschiedenis zorgde ervoor dat stijlperiodes geplaatst konden worden in
-        de
-        goede tijdsgeest. Tijdens zijn Pabo-opleiding maakte hij kennis met het maken abstracte figuren en de
-        achtergronden
-        van deze kunst. Tijdens zijn werk op de basisschool, werd het hout weer gebruikt in toepassingen van
-        leermiddelen.
-        Pas op 47 jarige leeftijd is hij begonnen aan de werkstukken die op deze site te zien zijn.
-    </Text>
-    <section class="flex flex-col items-center sm:flex-row justify-between space-y-4 sm:space-y-0">
-        <Image class="rounded-sm"
-               width="180"
-               height="270"
-               alt="Profiel foto van Harry van de Ven."
-               fit="cover"
-               layout="fixed"
-               src={HarryImage}
-               loading="eager"/>
-        <Image class="rounded-sm"
-               width="180"
-               height="270"
-               fit="cover"
-               alt="Harry van de Ven bewerkt een boomstam met een kettingzaag."
-               layout="fixed"
-               src={HarryWoodImage}
-               loading="eager"/>
-        <Image class="rounded-sm"
-               width="180"
-               height="270"
-               fit="cover"
-               alt="Harry van de Ven bewerkt een serpentijnen beeld met schuurpapier."
-               layout="fixed"
-               src={HarrySerpentineImage}
-               loading="eager"/>
-    </section>
-</Layout>
+<AboutLayout title="Over"
+             description="Harry van de Ven, woonachtig in Hengelo(OV), is pas laat begonnen met het maken van deze beelden."
+             harryImageAlt="Harry van de Ven"
+             harryWoodImageAlt="Harry van de Ven bewerkt een boomstam met een kettingzaag."
+             harrySerpentineImageAlt="Harry van de Ven bewerkt een serpentijnen beeld met schuurpapier.">
+    Harry van de Ven, woonachtig in Hengelo(OV), is pas laat begonnen met het maken van deze beelden. Al vroeg ging
+    zijn
+    voorkeur uit naar het werken met hout. Zijn eerste figuurzaag kreeg hij toen hij 8 jaar oud was en al snel werd
+    triplex en hout gebruikt voor de modelbouw. Daar gebruikte hij hout voor concrete toepassingen. In musea kon hij
+    genieten van kunst en zijn liefde voor geschiedenis zorgde ervoor dat stijlperiodes geplaatst konden worden in
+    de
+    goede tijdsgeest. Tijdens zijn Pabo-opleiding maakte hij kennis met het maken abstracte figuren en de
+    achtergronden
+    van deze kunst. Tijdens zijn werk op de basisschool, werd het hout weer gebruikt in toepassingen van
+    leermiddelen.
+    Pas op 47 jarige leeftijd is hij begonnen aan de werkstukken die op deze site te zien zijn.
+</AboutLayout>

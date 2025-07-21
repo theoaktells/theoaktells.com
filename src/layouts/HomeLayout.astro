@@ -1,0 +1,67 @@
+---
+import {Image} from 'astro:assets'
+
+import Layout from '../layouts/Layout.astro'
+import WoodImage from '../assets/hout.webp'
+import SerpentineImage from '../assets/serpentijn.webp'
+import Title from '../components/Title.astro'
+import {getRelativeLocaleUrl} from "astro:i18n";
+
+interface Props {
+  title: string
+  description: string
+  pageTitle: string
+  getToKnowTheSculpturesOfText: string
+  woodenSculptureText: string
+  stoneSculptureText: string
+  serpentineSculptureImageAltText: string
+  woodenSculptureImageAltText: string
+}
+
+const {
+  title,
+  description,
+  pageTitle,
+  getToKnowTheSculpturesOfText,
+  woodenSculptureText,
+  stoneSculptureText,
+  serpentineSculptureImageAltText,
+  woodenSculptureImageAltText
+} = Astro.props
+---
+
+<Layout title={title}
+        description={description}
+        previewImageUrl="/src/assets/hout.webp">
+    <Title class:list={['mt-11.5']} title={pageTitle}/>
+    <h2 class="text-lg">{getToKnowTheSculpturesOfText} <a class="hover:underline"
+                                                          href={getRelativeLocaleUrl(Astro.currentLocale ?? 'nl', '/about')}>Harry van de Ven</a>.
+    </h2>
+    <section class="flex flex-col sm:flex-row space-y-5 sm:space-y-0 sm:space-x-5 justify-center-safe">
+        <a href={getRelativeLocaleUrl(Astro.currentLocale ?? 'nl', '/balance')}
+           class="flex flex-col items-center p-3 bg-secondary-dark rounded-sm hover:underline">
+            <Image class="rounded-sm"
+                   width="256"
+                   height="332"
+                   fit="cover"
+                   alt={woodenSculptureImageAltText}
+                   priority={true}
+                   layout="fixed"
+                   src={WoodImage}
+                   loading="eager"/>
+            <h2 class="text-center pt-2">{woodenSculptureText}</h2>
+        </a>
+        <a href={getRelativeLocaleUrl(Astro.currentLocale ?? 'nl', '/angel')}
+           class="flex flex-col items-center p-3 bg-secondary-dark rounded-sm hover:underline">
+            <Image class="rounded-sm"
+                   width="256"
+                   height="332"
+                   fit="cover"
+                   alt={serpentineSculptureImageAltText}
+                   layout="fixed"
+                   src={SerpentineImage}
+                   loading="eager"/>
+            <h2 class="text-center pt-2">{stoneSculptureText}</h2>
+        </a>
+    </section>
+</Layout>

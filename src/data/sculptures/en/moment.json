@@ -1,0 +1,21 @@
+{
+  "title": "Moment",
+  "impressivenessScore": 500,
+  "description": "Moment is a sculpture measuring 27x15x42 cm made of serpentine. Moment refers to a special moment at the wedding of the client’s son, captured in a photograph.",
+  "previewImageUrl": "/src/assets/sculptures/moment/1.webp",
+  "context": "Moment is a sculpture measuring 27x15x42 cm made of serpentine. Moment refers to a special moment at the wedding of the client’s son, captured in a photograph. The client indicated Mount Rushmore as the starting point for the work.<br><br>A large part of the sculpture remains rough, unworked stone to reflect the character of Mount Rushmore. Two main lines shape the sculpture: a diagonal line running from the left corner to the woman's shoulder and an \"S\" line that begins at the woman's hair, runs over the top of the sculpture just beneath the clothing of the figures, and then curves down again toward the base. The base of the sculpture is rough stone. The spaces for the faces are carved out in the stone so that the stone provides shelter for the depicted couple. The background of this space is kept rough (the chisel marks are visible), creating an impressionistic atmosphere. This atmosphere is also reflected in the clothing of the figures. The faces of the man and woman are central to the sculpture through the dark color of the polished stone.",
+  "images": [
+    {
+      "url": "/src/assets/sculptures/moment/1.webp",
+      "alt": "Rough stone sculpture depicting a couple."
+    },
+    {
+      "url": "/src/assets/sculptures/moment/2.webp",
+      "alt": "Rough stone sculpture depicting a couple."
+    },
+    {
+      "url": "/src/assets/sculptures/moment/3.webp",
+      "alt": "Rough stone sculpture depicting a couple."
+    }
+  ]
+}

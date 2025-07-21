@@ -1,0 +1,21 @@
+{
+  "title": "Worlds",
+  "impressivenessScore": 450,
+  "description": "The sculpture measures 30x15x45 cm and is made of oak wood.",
+  "previewImageUrl": "/src/assets/sculptures/worlds/1.webp",
+  "context": "The sculpture measures 30x15x45 cm and is made of oak wood. Characteristic are the straight lines and irregular planes. Within these planes, three figures are situated. A starfish, a reptile, and a human: three different worlds that tell the story of evolution.",
+  "images": [
+    {
+      "url": "/src/assets/sculptures/worlds/1.webp",
+      "alt": "Wooden statue of three figures: a reptile, a starfish, and a human."
+    },
+    {
+      "url": "/src/assets/sculptures/worlds/2.webp",
+      "alt": "Wooden statue of three figures: a reptile, a starfish, and a human."
+    },
+    {
+      "url": "/src/assets/sculptures/worlds/3.webp",
+      "alt": "Wooden statue of three figures: a reptile, a starfish, and a human."
+    }
+  ]
+}

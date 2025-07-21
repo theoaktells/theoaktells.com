@@ -1,0 +1,57 @@
+{
+  "title": "Fruits of life",
+  "impressivenessScore": 900,
+  "description": "Fruits of life will be a workpiece measuring 230 x 60 x 60 cm. The figurines form the heart of the composition and are approximately 13x6x6 cm in size.",
+  "previewImageUrl": "/src/assets/sculptures/fruits-of-life/1.webp",
+  "context": "Fruits of life will be a workpiece measuring 230 x 60 x 60 cm. The figurines form the heart of the composition and are approximately 13x6x6 cm in size. Currently, the figurines include: The Water Bearer (2012), The Scale (2013), Mother and Child (2018), The Fisherman (2019), The Family (2021), Comforting (2023)",
+  "images": [
+    {
+      "url": "/src/assets/sculptures/fruits-of-life/1.webp",
+      "alt": "Wooden sculpture of a family surrounded by a decorated casing."
+    },
+    {
+      "url": "/src/assets/sculptures/fruits-of-life/2.webp",
+      "alt": "Wooden sculpture of a fisherman surrounded by a decorated casing."
+    },
+    {
+      "url": "/src/assets/sculptures/fruits-of-life/3.webp",
+      "alt": "Wooden sculpture of a man carrying water surrounded by a decorated casing."
+    },
+    {
+      "url": "/src/assets/sculptures/fruits-of-life/4.webp",
+      "alt": "Wooden sculpture of a woman holding a dress surrounded by a decorated casing."
+    },
+    {
+      "url": "/src/assets/sculptures/fruits-of-life/5.webp",
+      "alt": "Wooden sculpture of a mother holding a child surrounded by a decorated casing."
+    },
+    {
+      "url": "/src/assets/sculptures/fruits-of-life/6.webp",
+      "alt": "Wooden sculpture of a mother comforting a child surrounded by a decorated casing."
+    },
+    {
+      "url": "/src/assets/sculptures/fruits-of-life/7.webp",
+      "alt": "Wooden figurine of a family."
+    },
+    {
+      "url": "/src/assets/sculptures/fruits-of-life/8.webp",
+      "alt": "Wooden figurine of a fisherman."
+    },
+    {
+      "url": "/src/assets/sculptures/fruits-of-life/9.webp",
+      "alt": "Wooden figurine of a man carrying water."
+    },
+    {
+      "url": "/src/assets/sculptures/fruits-of-life/10.webp",
+      "alt": "Wooden figurine of a mother comforting a child."
+    },
+    {
+      "url": "/src/assets/sculptures/fruits-of-life/11.webp",
+      "alt": "Wooden figurine of a woman holding a dress."
+    },
+    {
+      "url": "/src/assets/sculptures/fruits-of-life/12.webp",
+      "alt": "Wooden figurine of a woman holding a child."
+    }
+  ]
+}

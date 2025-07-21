@@ -1,0 +1,25 @@
+{
+  "title": "Angel",
+  "impressivenessScore": 800,
+  "description": "Angel is a combination of a 2 meter high oak sculpture and a serpentine sculpture of approximately 30x15x15 cm.",
+  "previewImageUrl": "/src/assets/sculptures/angel/1.webp",
+  "context": "Angel is a combination of a 2 meter high oak sculpture and a serpentine sculpture of approximately 30x15x15 cm. The sculpture stands on an octagonal platform made of dark stone.<br><br>The sculpture has two sides: on the front, the face of a woman. The limitations of the stone mean that the full form is not completely developed. The woman stands out because of her intricately shaped hair. She has a flower in her hair. The back of the sculpture is shaped in an organically abstract form.",
+  "images": [
+    {
+      "url": "/src/assets/sculptures/angel/1.webp",
+      "alt": "Stone sculpture of a woman."
+    },
+    {
+      "url": "/src/assets/sculptures/angel/2.webp",
+      "alt": "Stone sculpture of a woman on a wooden pillar."
+    },
+    {
+      "url": "/src/assets/sculptures/angel/3.webp",
+      "alt": "Stone sculpture of a woman's side profile."
+    },
+    {
+      "url": "/src/assets/sculptures/angel/4.webp",
+      "alt": "Stone sculpture of a woman's side profile."
+    }
+  ]
+}

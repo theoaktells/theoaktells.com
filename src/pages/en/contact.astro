@@ -1,0 +1,21 @@
+---
+import ContactLayout from '../../layouts/ContactLayout.astro'
+import {getCollection} from 'astro:content'
+
+const comments = await getCollection('commentsEn')
+---
+
+<ContactLayout title="Contact"
+               description="In overleg met U kan ik voor u een uniek beeld maken."
+               comments={comments}
+               commentsHeader="Comments">
+    <p class="pb-1 italic">Do these Sculptures appeal to you?</p>
+    <p class="pb-1 italic">Than you can contact me via <a class="hover:underline"
+                                                          href="mailto:theoaktells@gmail.com">
+        theoaktells@gmail.com</a>. In consultation with you, I can create a unique sculpture for you:</p>
+    <ul class="list-disc italic ml-6">
+        <li>A sculpture for your garden</li>
+        <li>A memory cemented in a sculpture</li>
+        <li>A sculpture in which you can store the ashes of a loved one</li>
+    </ul>
+</ContactLayout>
