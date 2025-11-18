@@ -3,31 +3,39 @@
   "impressivenessScore": 750,
   "description": "",
   "previewImageUrl": "/src/assets/sculptures/mellow/6.webp",
-  "context": "",
+  "context": "The sculpture measures 40×50×195 cm and is made of oak. It was carved from the lower trunk of an oak tree. This oak had to be felled because it was no longer healthy. There was not yet a cavity in the tree, but it had split and water was seeping into the center of the trunk. I encountered this condition while carving, hence the name Mellow. Characteristic is the open structure at the top, which refers to the transience of matter. As the sculpture descends downward, the oak becomes denser and more solid again, regaining the toughness to curl, to stand firmly in the ground, and to allude to the fragility of the end. In short, a life story in sculptural form, if you follow it from bottom to top. On one of the \"legs\" the name of this site is inlaid with dark wood so that viewers can look up information about this sculpture and visit more works from this family.",
   "images": [
     {
       "url": "/src/assets/sculptures/mellow/1.webp",
-      "alt": "Part of a tree trunk."
+      "alt": "Abstract wooden sculpture."
     },
     {
       "url": "/src/assets/sculptures/mellow/2.webp",
-      "alt": "Harry van de Ven working a tree trunk with a chainsaw."
+      "alt": "Abstract wooden sculpture."
     },
     {
       "url": "/src/assets/sculptures/mellow/3.webp",
-      "alt": "Tree trunk with pieces cut out."
+      "alt": "Wooden sculpture with organic holes."
     },
     {
       "url": "/src/assets/sculptures/mellow/4.webp",
-      "alt": "Beginning wooden statue made from a tree trunk."
+      "alt": "Wooden sculpture with organic holes."
     },
     {
       "url": "/src/assets/sculptures/mellow/5.webp",
-      "alt": "Beginning wooden statue made from a tree trunk."
+      "alt": "Wooden sculpture with organic holes."
     },
     {
       "url": "/src/assets/sculptures/mellow/6.webp",
-      "alt": "Harry van de Ven working on a beginning wooden statue with a jigsaw."
+      "alt": "Wooden sculpture with organic holes."
+    },
+    {
+      "url": "/src/assets/sculptures/mellow/7.webp",
+      "alt": "Wooden sculpture with organic holes."
+    },
+    {
+      "url": "/src/assets/sculptures/mellow/8.webp",
+      "alt": "Wooden sculpture with organic holes."
     }
   ]
 }
