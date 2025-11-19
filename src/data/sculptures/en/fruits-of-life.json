@@ -3,7 +3,7 @@
   "impressivenessScore": 900,
   "description": "Fruits of life will be a workpiece measuring 230 x 60 x 60 cm. The figurines form the heart of the composition and are approximately 13x6x6 cm in size.",
   "previewImageUrl": "/src/assets/sculptures/fruits-of-life/1.webp",
-  "context": "Fruits of life will be a workpiece measuring 230 x 60 x 60 cm. The figurines form the heart of the composition and are approximately 13x6x6 cm in size. Currently, the figurines include: The Water Bearer (2012), The Scale (2013), Mother and Child (2018), The Fisherman (2019), The Family (2021), Comforting (2023)",
+  "context": "Fruits of life will be a workpiece measuring 230 x 60 x 60 cm. The figurines form the heart of the composition and are approximately 13x6x6 cm in size. Currently, the figurines include: The Water Bearer (2012), The Scale (2013), Mother and Child (2018), The Fisherman (2019), The Family (2021), Comforting (2023).<br><br>The figurines are placed in two ellipsoids, which hang from a curled long oak branch measuring 260 cm. At the base of the branch there is a triangular \"wheel\" to support it. Above that is a blossoming branch, consisting of 12 flowers, 10 flower buds, and several leaves (2025).",
   "images": [
     {
       "url": "/src/assets/sculptures/fruits-of-life/1.webp",
@@ -52,6 +52,18 @@
     {
       "url": "/src/assets/sculptures/fruits-of-life/12.webp",
       "alt": "Wooden figurine of a woman holding a child."
+    },
+    {
+      "url": "/src/assets/sculptures/fruits-of-life/13.webp",
+      "alt": "Wooden blossoming branch."
+    },
+    {
+      "url": "/src/assets/sculptures/fruits-of-life/14.webp",
+      "alt": "Wooden blossoming branch."
+    },
+    {
+      "url": "/src/assets/sculptures/fruits-of-life/15.webp",
+      "alt": "Wooden blossoming branch."
     }
   ]
 }

@@ -3,7 +3,7 @@
   "impressivenessScore": 900,
   "description": "Fruits of life, wordt een werkstuk van 230 x60 x60 cm. De beeldjes vormen het hart van de voorstelling en zijn ongeveer 13x6x6 cm groot.",
   "previewImageUrl": "/src/assets/sculptures/fruits-of-life/1.webp",
-  "context": "Fruits of life, wordt een werkstuk van 230 x60 x60 cm. De beeldjes vormen het hart van de voorstelling en zijn ongeveer 13x6x6 cm groot. Op dit moment zijn er de beeldjes: De waterdrager (2012), De weegschaal (2013), Moeder en kind (2018, De visser (2019), Het gezin (2021), Troosten (2023)",
+  "context": "Fruits of life, wordt een werkstuk van 230 x60 x60 cm. De beeldjes vormen het hart van de voorstelling en zijn ongeveer 13x6x6 cm groot. Op dit moment zijn er de beeldjes: De waterdrager (2012), De weegschaal (2013), Moeder en kind (2018, De visser (2019), Het gezin (2021), Troosten (2023).<br><br>De beeldjes staan in twee ellipsoïden, die hangen aan een gekrulde lange eiken tak van 260 cm lang. Aan de voet van de tak bevindt zich een driehoekig  \"wiel\" om de tak te ondersteunen. Daarboven een tak met bloesem, die bestaat uit 12 bloemen, 10 bloemknoppen en enkele bladeren (2025).",
   "images": [
     {
       "url": "/src/assets/sculptures/fruits-of-life/1.webp",
@@ -52,6 +52,18 @@
     {
       "url": "/src/assets/sculptures/fruits-of-life/12.webp",
       "alt": "Houten beeldje van een vrouw die een kind vasthoud."
+    },
+    {
+      "url": "/src/assets/sculptures/fruits-of-life/13.webp",
+      "alt": "Houten tak met bloesem."
+    },
+    {
+      "url": "/src/assets/sculptures/fruits-of-life/14.webp",
+      "alt": "Houten tak met bloesem."
+    },
+    {
+      "url": "/src/assets/sculptures/fruits-of-life/15.webp",
+      "alt": "Houten tak met bloesem."
     }
   ]
 }
